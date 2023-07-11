@@ -1,10 +1,15 @@
 const express = require('express')
 const app = express();
-const PORT = 6000
-const morgan = require('morgan')
-const cors = require('cors')
-app.use(morgan('dev'))
-
 app.use(express.json())
 app.use(express.urlencoded({ extended:true }))
+
+const PORT = 6000
+app.listen(PORT,()=>{
+    console.log(`server is listening on ${PORT}`);
+});
+
+const morgan = require('morgan')
+app.use(morgan('dev'))
+
+const cors = require('cors')
 app.use(cors())
