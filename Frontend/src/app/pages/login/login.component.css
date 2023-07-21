@@ -1,0 +1,59 @@
+
+.container {
+    max-width: 400px; /* Adjust the width as needed */
+    background-color: #ffffff; /* White background color for the container */
+    border: 0px solid #000000; /* Blue border */
+    border-radius: 20px; /* Rounded corners */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    height: 350px;
+   
+    background-size: cover;
+    
+  }
+  
+  .heading {
+    text-align: center;
+    color: #fff; /* White font color */
+    background-color: #007bff; /* Blue background color for the heading */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px; /* Rounded corners for the heading */
+  }
+  /* Blue border for the email and password input boxes */
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  border: 1px solid #000000;
+  color: #ffffff; /* Set text color to blue */
+}
+
+.label{
+    margin-top: 15px;
+
+}
+/* Light blue color for the placeholders */
+.form-group input[type="email"]::placeholder,
+.form-group input[type="password"]::placeholder {
+  color: #000000; /* Light blue placeholder color */
+}
+  
+  .form-group label,
+  .form-group input[type="email"],
+  .form-group input[type="password"],
+  .form-group button {
+    color: #ffffff; /* White text color */
+  }
+  
+  /* Blue background for the submit button */
+  .form-group button {
+    background-color: #007bff;
+  }
+  
+  /* Add a darker blue background for the submit button on hover */
+  .form-group button:hover {
+    background-color: #0056b3;
+  }
+  #submit{
+    margin-left: 140px;
+    margin-top: 40px;
+  }

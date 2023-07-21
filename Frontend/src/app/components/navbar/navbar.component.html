@@ -1,0 +1,17 @@
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#" ><img id="logo" src="assets/LOGO_ICTAK-Name.jpg" alt=""></a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" *ngIf="!loggedIn">
+          <button class="btn btn-primary" (click)="login()">Login</button>
+        </li>
+        <li class="nav-item" *ngIf="loggedIn">
+          <button class="btn btn-danger" (click)="logout()">Logout</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<app-login *ngIf="showLoginForm" (submitted)="onLoginSubmitted()"></app-login>
