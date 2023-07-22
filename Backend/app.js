@@ -1,15 +1,68 @@
-const express = require('express')
-const app = express();
-app.use(express.json())
-app.use(express.urlencoded({ extended:true }))
+const express = require('express');
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-const PORT = 6000
-app.listen(PORT,()=>{
-    console.log(`server is listening on ${PORT}`);
+const app = express();
+const PORT = 3000;
+
+// Connect to MongoDB Atlas
+mongoose.connect('mongodb+srv://officialsabarinarayan:9447103050@cluster0.buyzcu4.mongodb.net/finalproject', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('Connected to MongoDB Atlas'))
+.catch(err => console.error('Error connecting to MongoDB Atlas:', err));
+
+// Create a User schema
+const userSchema = new mongoose.Schema({
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  role: { type: String, required: true },
 });
 
-const morgan = require('morgan')
-app.use(morgan('dev'))
+const User = mongoose.model('User', userSchema);
 
-const cors = require('cors')
-app.use(cors())
+// Middleware
+app.use(bodyParser.json());
+app.use(cors());
+
+// Login route
+app.post('/login', (req, res) => {
+  const { email, password } = req.body;
+
+  // Find the user with the given email
+  User.findOne({ email })
+    .then(user => {
+      if (!user) {
+        // User not found
+        res.status(401).json({ message: 'Invalid credentials' });
+      } else {
+        // Compare the provided password with the stored hashed password
+        bcrypt.compare(password, user.password)
+          .then(isValid => {
+            if (isValid) {
+              // Password is correct, login successful
+              res.json({ message: 'Login successful' });
+            } else {
+              // Password is incorrect
+              res.status(401).json({ message: 'Invalid credentials' });
+            }
+          })
+          .catch(err => {
+            console.error('Error comparing passwords:', err);
+            res.status(500).json({ message: 'Internal server error' });
+          });
+      }
+    })
+    .catch(err => {
+      console.error('Error finding user:', err);
+      res.status(500).json({ message: 'Internal server error' });
+    });
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});

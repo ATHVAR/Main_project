@@ -5,10 +5,11 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
-import { FormsModule } from '@angular/forms'; // <
+import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { LoginService } from './shared/link.service';
 import { LoginFormVisibilityService } from './shared/login-form-visiblity.service';
-import { HostListener } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,14 +17,16 @@ import { BehaviorSubject, Observable } from 'rxjs';
     NavbarComponent,
     FooterComponent,
     LoginComponent,
+    HomeComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
-  providers: [LoginFormVisibilityService],
+  providers: [LoginService,LoginFormVisibilityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

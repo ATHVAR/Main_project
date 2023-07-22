@@ -41,7 +41,7 @@
   .form-group input[type="email"],
   .form-group input[type="password"],
   .form-group button {
-    color: #ffffff; /* White text color */
+    color: #000000; /* White text color */
   }
   
   /* Blue background for the submit button */

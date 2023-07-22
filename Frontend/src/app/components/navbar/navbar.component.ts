@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginFormVisibilityService } from 'src/app/shared/login-form-visiblity.service';
 
 
 @Component({
@@ -11,6 +12,7 @@ export class NavbarComponent {
   showLoginForm: boolean = false;
   showLogoutButton: boolean = false;
 
+  constructor(private loginFormVisibilityService: LoginFormVisibilityService) {}
   
   login() {
     // Implement your login logic here
