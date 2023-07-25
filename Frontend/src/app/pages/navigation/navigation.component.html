@@ -1,0 +1,40 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary text-dark bg-opacity-50">
+    <div class="container-fluid">
+        <a class="logofont navbar-brand"><img id="logo" src="assets/LOGO_ICTAK-Name.jpg" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/home"><i class="bi bi-house"></i> Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-lock"></i> Admin Panel</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" routerLink="/adduser"><i class="bi bi-person-plus"></i> Add User</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" routerLink="/viewuser"><i class="bi bi-person-badge"></i> View Users</a></li>
+
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-people-fill"></i> Student Panel</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" routerLink="/addstuds"><i class="bi bi-person-plus"></i> Add Student</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" routerLink="/viewstuds"><i class="bi bi-person-badge"></i> View Students</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <!-- change password page not set waiting for approval-->
+            <a class="nav-link" routerLink="/passchange"><i class="bi bi-gear"></i> Change Password</a>
+            </li>
+        </ul>
+        <form class="d-flex" role="search">
+            <button class="button btn btn-outline-success" (click)="logout()"><i class="bi bi-box-arrow-in-right"></i> Logout</button>
+        </form>
+        </div>
+    </div>
+</nav>

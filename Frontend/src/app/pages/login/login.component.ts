@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { LoginService } from 'src/app/shared/link.service';
 import { LoginFormVisibilityService } from 'src/app/shared/login-form-visiblity.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent {
 
   constructor(
     private loginService: LoginService,
-    private loginFormVisibilityService: LoginFormVisibilityService
+    private loginFormVisibilityService: LoginFormVisibilityService,
+    private router:Router
   ) {
     this.loginFormVisibilityService.showLoginForm$.subscribe(
       (visibility: boolean) => {
@@ -48,6 +50,7 @@ export class LoginComponent {
         // You can perform further actions here, such as redirecting the user to a dashboard page.
         this.loginFormVisibilityService.setShowLoginFormVisibility(false);
         this.loginFormVisibilityService.setLoggedIn(true);
+        this.router.navigate(['home']);
       },
       (error) => {
         // Login failed

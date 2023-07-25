@@ -1,0 +1,34 @@
+<app-navigation></app-navigation>
+
+<div class="registration-form">
+    <form>
+        <div class="form-icon">
+            <span><i class="bi bi-person-exclamation"></i></span>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control item" id="username" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <select id="disabledSelect" class="form-select item">
+                <option>Training Head</option>
+                <option>Placement Officer</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control item" id="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control item" id="phone-number" placeholder="Password">
+        </div>
+        <div class="form-group d-flex justify-content-evenly">
+            <button type="submit" class="btn btn-block create-account">Update</button>
+            <button type="button" routerLink="/viewuser" class="btn btn-block create-account">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<!-- scriptfiles -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="assets/js/script.js"></script>
+

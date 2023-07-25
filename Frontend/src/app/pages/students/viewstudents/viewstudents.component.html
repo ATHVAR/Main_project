@@ -1,0 +1,36 @@
+<app-navigation></app-navigation>
+
+<!-- add button -->
+<div class="addbtn m-3 text-center">
+    <button class="btn btn-outline-success" routerLink="/addstuds"><i class="bi bi-person-plus"></i> Add new</button>
+</div>
+
+<table class="table table-dark table-hover table-striped ">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Course</th>
+        <th scope="col">Project</th>
+        <th scope="col">Batch</th>
+        <th scope="col">Status</th>
+        <th scope="col">Placement</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">student@email.com</td>
+        <td>Jacob</td>
+        <td>MEAN</td>
+        <td>KKEAM</td>
+        <td>May 22</td>
+        <td>qualified</td>
+        <td>placed</td>
+        <td scope="col"><a routerLink="/editstuds"><i class="bi bi-pencil-square"></i></a></td>
+        <td scope="col"><a><i class="bi bi-trash3-fill"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+
