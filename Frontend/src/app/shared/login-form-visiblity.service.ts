@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -7,8 +7,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class LoginFormVisibilityService {
   private showLoginForm = new BehaviorSubject<boolean>(false);
   showLoginForm$ = this.showLoginForm.asObservable();
+  private loggedIn = new BehaviorSubject<boolean>(false);
+  loggedIn$ = this.loggedIn.asObservable();
 
   setShowLoginFormVisibility(visible: boolean) {
     this.showLoginForm.next(visible);
+  }
+
+  setLoggedIn(loggedIn: boolean) {
+    this.loggedIn.next(loggedIn);
   }
 }

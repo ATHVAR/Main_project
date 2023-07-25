@@ -46,19 +46,18 @@ export class LoginComponent {
         // Login successful
         alert('Login successful');
         // You can perform further actions here, such as redirecting the user to a dashboard page.
+        this.loginFormVisibilityService.setShowLoginFormVisibility(false);
+        this.loginFormVisibilityService.setLoggedIn(true);
       },
       (error) => {
         // Login failed
         alert('Invalid credentials');
       }
     );
-
-    // Hide the login form after successful login
-    this.loginFormVisibilityService.setShowLoginFormVisibility(false);
   }
+
   onCancel() {
     // Close the login form by hiding it
-    this.showLoginForm = false;
     this.loginFormVisibilityService.setShowLoginFormVisibility(false);
   }
 }

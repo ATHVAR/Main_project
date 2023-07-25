@@ -93,11 +93,14 @@ input{
 button{
     margin-top: 50px;
     width: 100%;
-    background-color: #0289f769;
+    background-color: #0289f74e;
     color: #ffffff;
     padding: 15px 0;
     font-size: 18px;
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 20px ;
 }
+
+
