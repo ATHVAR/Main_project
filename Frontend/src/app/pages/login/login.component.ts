@@ -56,4 +56,9 @@ export class LoginComponent {
     // Hide the login form after successful login
     this.loginFormVisibilityService.setShowLoginFormVisibility(false);
   }
+  onCancel() {
+    // Close the login form by hiding it
+    this.showLoginForm = false;
+    this.loginFormVisibilityService.setShowLoginFormVisibility(false);
+  }
 }

@@ -1,17 +1,20 @@
-<!-- login.component.html -->
-<div class="container mt-4">
-  <div class="heading">
-    <h3>User Log-In</h3>
+
+<body>
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
   </div>
   <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label class="label" for="email">Email</label>
-      <input type="email" class="form-control" placeholder="Enter email" id="email" name="email" required [(ngModel)]="email">
-    </div>
-    <div class="form-group">
-      <label class="label" for="password">Password</label>
-      <input type="password" class="form-control" placeholder="Enter password" id="password" name="password" required [(ngModel)]="password">
-    </div>
-    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+    <h3>Login Here</h3>
+
+    <label for="email">Email</label>
+    <input type="email" placeholder="Enter Email" id="username" name="email" required [(ngModel)]="email">
+
+    <label for="password">Password</label>
+    <input type="password" placeholder="Enter Password" id="password" name="password" required [(ngModel)]="password">
+
+    <button id="submit" type="submit" class="btn btn-primary">Log In</button>
   </form>
-</div>
+</body>
+
+

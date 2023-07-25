@@ -7,7 +7,7 @@ const cors = require('cors');
 const app = express();
 const PORT = 3000;
 
-// Connect to MongoDB Atlas
+//MongoDB Atlas connect
 mongoose.connect('mongodb+srv://officialsabarinarayan:9447103050@cluster0.buyzcu4.mongodb.net/finalproject', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -15,7 +15,7 @@ mongoose.connect('mongodb+srv://officialsabarinarayan:9447103050@cluster0.buyzcu
 .then(() => console.log('Connected to MongoDB Atlas'))
 .catch(err => console.error('Error connecting to MongoDB Atlas:', err));
 
-// Create a User schema
+// User schema
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Middleware
+
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -32,7 +32,7 @@ app.use(cors());
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
 
-  // Find the user with the given email
+  
   User.findOne({ email })
     .then(user => {
       if (!user) {

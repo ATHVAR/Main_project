@@ -3,31 +3,28 @@
     margin-left: 190px;
     background-color: rgb(193, 201, 201);
 }
-/* styles.css or styles.scss */
+
 .custom-card {
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.9); /* White shadow */
-    transition: box-shadow 0.3s, transform 0.3s; /* Add transition for smooth animation */
-  
-    /* Adjust the scale factor to control the zoom-in effect */
-    /* This value should be greater than 1 for zooming in and less than 1 for zooming out */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.9); 
+    transition: box-shadow 0.3s, transform 0.3s; 
     transform: scale(1);
   }
   
   .custom-card:hover {
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); /* Increase the shadow on hover */
-    transform: scale(1.05); /* Zoom in on hover */
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); 
+    transform: scale(1.05); 
   }
   #card1{
 margin-left: 550px;
 margin-top: -399px;
   }
   
-  /* styles.css or styles.scss */
+  
 .learner-tracker {
-  background-color: #f9f9f9; /* Light gray background color */
+  background-color: #f9f9f9;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   text-align: center;
   margin: 20px auto;
   max-width: 600px;
@@ -38,17 +35,17 @@ margin-top: -399px;
 .tracker-title {
   font-size: 28px;
   font-weight: bold;
-  color: #007bff; /* Blue title color */
+  color: #007bff; 
   margin-bottom: 10px;
 }
 
 .tracker-description {
   font-size: 18px;
-  color: #000000; /* Dark gray description color */
+  color: #000000; 
   line-height: 1.6;
 }
 
-/* Add a subtle animation on hover */
+
 .learner-tracker:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease;
