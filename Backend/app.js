@@ -82,7 +82,7 @@ app.post('/addstuds',(req,res)=>{
     id:req.body.id,
     name:req.body.name,
     course:req.body.course,
-    project:req.body.placement,
+    project:req.body.project,
     batch:req.body.batch,
     status:req.body.status,
     placement:req.body.placement
@@ -119,7 +119,7 @@ app.get('/getone/:_id', async (req, res) => {
 });
 
 // edit data
-app.put('/editstud/:_id', async (req, res) => {
+app.put('/editstuds/:_id', async (req, res) => {
   try {
       let id = req.params._id
       let updateData = {$set: req.body}
@@ -131,7 +131,20 @@ app.put('/editstud/:_id', async (req, res) => {
   }
 })
 
-
+// delete data
+app.delete('/deleteitem/:_id',(req, res) => {
+  Student.findByIdAndRemove(req.params._id)
+  .then((student)=>{
+    if (student){
+      res.status(200).json({message:'Student deleted successfully'});
+    }else{
+      res.status(404).json({error:'Student not found'});
+    }
+  })
+  .catch((error)=>{
+    res.status(500).json({error:'Failed to delete Student'});
+  });
+});
 
 
 // Start the server

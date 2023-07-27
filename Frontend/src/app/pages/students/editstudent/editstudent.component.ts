@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StudentdataService } from 'src/app/shared/studentdata.service';
-import { FormBuilder, FormControl, FormGroup,ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-editstudent',
@@ -10,7 +10,7 @@ import { FormBuilder, FormControl, FormGroup,ReactiveFormsModule } from '@angula
 })
 export class EditstudentComponent {
   editform!:FormGroup
-  constructor(public serv:StudentdataService,public activatedRoute:ActivatedRoute,public fb:FormBuilder,public router:Router){
+  constructor(private api:StudentdataService,private activatedRoute:ActivatedRoute,private fb:FormBuilder,private router:Router){
     this.editform=new FormGroup({
       "id":new FormControl(""),
       "name":new FormControl(""),
@@ -25,7 +25,7 @@ export class EditstudentComponent {
   id:any;
   ngOnInit():void{
     this.id=this.activatedRoute.snapshot.paramMap.get('id')
-    this.serv.getoneitem(this.id).subscribe((data)=>{
+    this.api.getoneitem(this.id).subscribe((data)=>{
       this.item=data
       console.log(this.item)
       this.editform=this.fb.group({
@@ -41,7 +41,7 @@ export class EditstudentComponent {
   }
   onsubmit(){
     console.log(this.editform.value)
-    this.serv.editstud(this.editform.value,this.id).subscribe(data=>{
+    this.api.editstud(this.editform.value,this.id).subscribe(data=>{
       console.log(data)
       this.router.navigate(['viewstuds'])
       alert("Detail updated")

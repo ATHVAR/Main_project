@@ -28,8 +28,8 @@
         <td>{{item.batch}}</td>
         <td>{{item.status}}</td>
         <td>{{item.placement}}</td>
-        <td scope="col"><a routerLink="/editstuds"><i class="bi bi-pencil-square"></i></a></td>
-        <td scope="col"><a><i class="bi bi-trash3-fill"></i></a></td>
+        <td scope="col"><a (click)="edititem(item._id)"><i class="bi bi-pencil-square text-primary"></i></a></td>
+        <td scope="col"><a href="viewstuds" (click)="delitem(item._id)"><i class="bi bi-trash3-fill text-danger"></i></a></td>
       </tr>
     </tbody>
   </table>

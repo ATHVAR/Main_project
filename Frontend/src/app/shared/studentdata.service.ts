@@ -23,4 +23,8 @@ export class StudentdataService {
   getoneitem(id:any){
     return this.http.get(`http://localhost:3000/getone/${id}`)
   }
+
+  delitem(id:any){
+    return this.http.delete(`http://localhost:3000/deleteitem/${id}`)
+  }
 }

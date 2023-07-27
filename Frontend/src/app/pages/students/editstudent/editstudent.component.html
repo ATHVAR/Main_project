@@ -1,7 +1,7 @@
 <app-navigation></app-navigation>
 
 <div class="registration-form">
-    <form class="form1"  (ngSubmit)="onsubmit()">
+    <form class="form1" [formGroup]="editform" (ngSubmit)="onsubmit()">
         <div class="form-group">
             <input type="email" class="form-control item" id="learnerid" placeholder="Learner ID" formControlName="id">
         </div>

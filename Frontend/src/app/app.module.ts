@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './pages/landingpage/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginService } from './shared/link.service';
 import { LoginFormVisibilityService } from './shared/login-form-visiblity.service';
@@ -20,6 +20,7 @@ import { EdituserComponent } from './pages/users/edituser/edituser.component';
 import { EditstudentComponent } from './pages/students/editstudent/editstudent.component';
 import { CsvComponent } from './pages/csv/csv.component';
 import { StudentdataService } from './shared/studentdata.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -43,8 +44,10 @@ import { StudentdataService } from './shared/studentdata.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [LoginService,LoginFormVisibilityService,StudentdataService],
   bootstrap: [AppComponent]
