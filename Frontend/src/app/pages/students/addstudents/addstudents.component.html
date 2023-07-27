@@ -1,16 +1,15 @@
 <app-navigation></app-navigation>
 
 <div class="registration-form">
-    <form>
+    <form class="form1" #addstud="ngForm" (ngSubmit)="submit()">
         <div class="form-group">
-            <input type="text" class="form-control item" id="username" placeholder="Learner ID">
+            <input type="email" class="form-control item" id="learnerid" placeholder="Learner ID" name="learnerid" [(ngModel)]="studdetail.id">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control item" id="password" placeholder="Name">
+            <input type="text" class="form-control item" id="name" placeholder="Name" name="name" [(ngModel)]="studdetail.name">
         </div>
         <div class="form-group">
-            <!-- <input type="text" class="form-control item" id="email" placeholder="Email"> -->
-            <select id="disabledSelect" class="form-select item">
+            <select id="course" class="form-select item" name="course" [(ngModel)]="studdetail.course">
                 <option>FSD</option>
                 <option>DSA</option>
                 <option>ML-AI</option>
@@ -20,8 +19,7 @@
               </select>
         </div>
         <div class="form-group">
-            <!-- <input type="text" class="form-control item" id="phone-number" placeholder="Phone Number"> -->
-            <select id="disabledSelect" class="form-select item">
+            <select id="project" class="form-select item" name="project" [(ngModel)]="studdetail.project">
                 <option>ICTAK</option>
                 <option>KKEM</option>
                 <option>NORKA</option>
@@ -30,8 +28,7 @@
               </select>
         </div>
         <div class="form-group">
-            <!-- <input type="text" class="form-control item" id="birth-date" placeholder="Birth Date"> -->
-            <select id="disabledSelect" class="form-select item">
+            <select id="batch" class="form-select item" name="batch" [(ngModel)]="studdetail.batch">
                 <option>May 22</option>
                 <option>Jun 22</option>
                 <option>Jul 22</option>
@@ -41,22 +38,20 @@
               </select>
         </div>
         <div class="form-group">
-            <!-- <input type="password" class="form-control item" id="password" placeholder="Name"> -->
-            <select id="disabledSelect" class="form-select item">
+            <select id="status" class="form-select item" name="status" [(ngModel)]="studdetail.status">
                 <option>Qualified</option>
                 <option>Incompetent</option>
             </select>
         </div>
         <div class="form-group">
-            <!-- <input type="password" class="form-control item" id="password" placeholder="Name"> -->
-            <select id="disabledSelect" class="form-select item">
+            <select id="placement" class="form-select item" name="placement" [(ngModel)]="studdetail.placement">
                 <option>Placed</option>
                 <option>Job Seeking</option>
                 <option>Not Interested</option>
               </select>
         </div>
         <div class="form-group d-flex justify-content-evenly">
-            <button type="button" class="btn btn-block add-account">Add</button>
+            <button type="submit" class="btn btn-block add-account">Add</button>
             <button routerLink="/viewstuds" class="btn btn-block discard-account">Discard</button>
         </div>
     </form>

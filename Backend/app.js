@@ -24,6 +24,18 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
+// Student Schema
+const studentSchema=new mongoose.Schema({
+  id: String,
+  name: String,
+  course: String,
+  project: String,
+  batch: String,
+  status: String,
+  placement: String,
+})
+
+const Student=mongoose.model('Studentdetail',studentSchema);
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -61,6 +73,66 @@ app.post('/login', (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
     });
 });
+
+// student crud operations
+// Add
+app.post('/addstuds',(req,res)=>{
+  console.log(req.body);
+  const newStudent=new Student({
+    id:req.body.id,
+    name:req.body.name,
+    course:req.body.course,
+    project:req.body.placement,
+    batch:req.body.batch,
+    status:req.body.status,
+    placement:req.body.placement
+  });
+  newStudent.save()
+    .then(()=>{
+      res.status(200).json({message:'Student Detail Added'});
+    })
+    .catch((error)=>{
+      res.status(500).json({error:'Failed to Add detail'});
+    })
+})
+
+// view all
+app.get('/viewstud',(req,res)=>{
+  Student.find()
+  .then((students)=>{
+    res.status(200).json(students);
+  })
+  .catch((error)=>{
+    res.status(500).json({error:'Failed to Fetch'});
+  })
+});
+
+// getone
+app.get('/getone/:_id', async (req, res) => {
+  try {
+    const student = await Student.findById(req.params._id);
+    res.status(200).json(student);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Error retrieving data');
+  }
+});
+
+// edit data
+app.put('/editstud/:_id', async (req, res) => {
+  try {
+      let id = req.params._id
+      let updateData = {$set: req.body}
+      const updated = await Student.findByIdAndUpdate(id, updateData,{ new: true })
+      res.json(updated)
+  } catch (error) {
+      console.log(error)
+      res.send('error')
+  }
+})
+
+
+
 
 // Start the server
 app.listen(PORT, () => {

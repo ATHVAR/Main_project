@@ -11,6 +11,7 @@ import { ErrorComponent } from './pages/error/error.component';
 import { ChangepassComponent } from './pages/changepass/changepass.component';
 import { EdituserComponent } from './pages/users/edituser/edituser.component';
 import { EditstudentComponent } from './pages/students/editstudent/editstudent.component';
+import { CsvComponent } from './pages/csv/csv.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'addstuds',component:AddstudentsComponent},
   {path:'editstuds',component:EditstudentComponent},
   {path:'passchange',component:ChangepassComponent},
+  {path:'csv',component:CsvComponent},
   {path:'**',component:ErrorComponent}
   // Other routes for your application
 ];

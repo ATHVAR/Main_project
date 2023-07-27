@@ -18,6 +18,8 @@ import { ErrorComponent } from './pages/error/error.component';
 import { ChangepassComponent } from './pages/changepass/changepass.component';
 import { EdituserComponent } from './pages/users/edituser/edituser.component';
 import { EditstudentComponent } from './pages/students/editstudent/editstudent.component';
+import { CsvComponent } from './pages/csv/csv.component';
+import { StudentdataService } from './shared/studentdata.service';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { EditstudentComponent } from './pages/students/editstudent/editstudent.c
     ChangepassComponent,
     EdituserComponent,
     EditstudentComponent,
+    CsvComponent,
   
     
   ],
@@ -43,7 +46,7 @@ import { EditstudentComponent } from './pages/students/editstudent/editstudent.c
     FormsModule,
     HttpClientModule
   ],
-  providers: [LoginService,LoginFormVisibilityService],
+  providers: [LoginService,LoginFormVisibilityService,StudentdataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
