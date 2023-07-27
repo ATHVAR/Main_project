@@ -13,6 +13,7 @@ background-size: cover;
     z-index: 11111;
     top: 35px;
     margin-top: 730px;
+    padding-top: 100px;
 }
 
 footer p, footer strong, footer b, footer {
