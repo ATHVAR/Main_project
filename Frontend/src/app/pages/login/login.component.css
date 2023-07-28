@@ -83,9 +83,10 @@ input{
     background-color: rgba(255, 255, 255, 0.537);
     border-radius: 3px;
     padding: 0 10px;
-    margin-top: 8px;
+    margin-top: px;
     font-size: 14px;
     font-weight: 300;
+    color: #000000 !important;
 }
 ::placeholder{
     color: #000000;

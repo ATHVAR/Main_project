@@ -21,6 +21,8 @@ import { EditstudentComponent } from './pages/students/editstudent/editstudent.c
 import { CsvComponent } from './pages/csv/csv.component';
 import { StudentdataService } from './shared/studentdata.service';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule
   ],
   providers: [LoginService,LoginFormVisibilityService,StudentdataService],
   bootstrap: [AppComponent]

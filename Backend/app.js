@@ -12,7 +12,11 @@ mongoose.connect('mongodb+srv://officialsabarinarayan:9447103050@cluster0.buyzcu
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log('Connected to MongoDB Atlas'))
+.then(() => {
+  console.log('Connected to MongoDB Atlas');
+    // Once connected, call the function to update passwords
+    })
+
 .catch(err => console.error('Error connecting to MongoDB Atlas:', err));
 
 // User schema
@@ -39,6 +43,8 @@ const Student=mongoose.model('Studentdetail',studentSchema);
 
 app.use(bodyParser.json());
 app.use(cors());
+
+
 
 // Login route
 app.post('/login', (req, res) => {
