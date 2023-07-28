@@ -2,6 +2,10 @@
 
 <div class="registration-form">
     <form class="form1" #addstud="ngForm" (ngSubmit)="submit()">
+        <div class="text-center headingdiv bg-primary-subtle fs-3 font-monospac">
+            <span>Add Student Details</span>
+        </div>
+        <br>
         <div class="form-group">
             <input type="email" class="form-control item" id="learnerid" placeholder="Learner ID" name="learnerid" required [(ngModel)]="studdetail.id" #id="ngModel" [class.is-invalid]="id.invalid&&id.touched" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
             <span *ngIf="id.touched &&id.errors?.['required']" class="error-message" >Mail ID is required.</span>
