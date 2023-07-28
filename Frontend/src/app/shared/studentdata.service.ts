@@ -17,7 +17,7 @@ export class StudentdataService {
   }
 
   editstud(updatedData:any,id:any){
-    return this.http.put(`http://localhost:3000/editstud/${id}`,updatedData)
+    return this.http.put(`http://localhost:3000/editstuds/${id}`,updatedData)
   }
 
   getoneitem(id:any){
