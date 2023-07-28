@@ -15,17 +15,17 @@ import { CsvComponent } from './pages/csv/csv.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  {path: '',component:NavbarComponent},
-  {path:'home',component:HomeComponent},
-  {path:'viewuser',component:ViewuserComponent},
-  {path:'adduser',component:AdduserComponent},
-  {path:'edituser',component:EdituserComponent},
-  {path:'viewstuds',component:ViewstudentsComponent},
-  {path:'addstuds',component:AddstudentsComponent},
-  {path:'editstuds',component:EditstudentComponent},
-  {path:'passchange',component:ChangepassComponent},
-  {path:'csv',component:CsvComponent},
-  {path:'**',component:ErrorComponent}
+  { path: '', component: NavbarComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'viewuser', component: ViewuserComponent },
+  { path: 'adduser', component: AdduserComponent },
+  { path: 'edituser', component: EdituserComponent },
+  { path: 'viewstuds', component: ViewstudentsComponent },
+  { path: 'addstuds', component: AddstudentsComponent },
+  { path: 'editstuds/:id', component: EditstudentComponent }, // Add ':id' parameter for student ID
+  { path: 'passchange', component: ChangepassComponent },
+  { path: 'csv', component: CsvComponent },
+  { path: '**', component: ErrorComponent }
   // Other routes for your application
 ];
 
@@ -33,4 +33,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
