@@ -1,11 +1,11 @@
 <app-navigation></app-navigation>
-
+<!-- Template Driven Form -->
 <div class="registration-form">
-    <form class="form1" #addstud="ngForm" (ngSubmit)="submit()">
-        <!-- <div class="text-center headingdiv bg-primary-subtle fs-3 font-monospac">
+    <form class="form1 bg-light" #addstud="ngForm" (ngSubmit)="submit()">
+        <div class="text-center headingdiv bg-primary-subtle fs-3 font-monospace">
             <span>Add Student Details</span>
         </div>
-        <br> -->
+        <br>
         <div class="form-group">
             <input type="email" class="form-control item" id="learnerid" placeholder="Learner ID" name="learnerid" required [(ngModel)]="studdetail.id" #id="ngModel" [class.is-invalid]="id.invalid&&id.touched" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
             <span *ngIf="id.touched &&id.errors?.['required']" class="error-message" >Mail ID is required.</span>
@@ -73,8 +73,8 @@
         </div>
         <br>
         <div class="form-group d-flex justify-content-evenly">
-            <button type="submit" [disabled]="addstud.invalid" class="btn btn-block add-account">Add</button>
-            <button routerLink="/viewstuds" class="btn btn-block discard-account">Discard</button>
+            <button type="submit" [disabled]="addstud.invalid" class="btn btn-block add-account"><i class="bi bi-person-fill-add"></i> Add</button>
+            <button routerLink="/viewstuds" class="btn btn-block discard-account"><i class="bi bi-x-circle-fill"></i> Discard</button>
         </div>
     </form>
 </div>

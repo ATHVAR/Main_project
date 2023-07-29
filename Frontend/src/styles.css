@@ -1,11 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 body{
 background-image: url(assets/download.jpg);
 background-size: cover;
+height: 132vh;
 }
-
 
 .page-wrapper
 {
@@ -97,7 +96,6 @@ color: #99a9b5;
     border-right: 1px solid #333146;
 }
 
-
 navigation li a, .custom-footer, .custom-footer li a {
     color: #99a9b5;
     padding-top: 15px;
@@ -169,7 +167,6 @@ a.socials-item {
     color: #2ca5e0;
 }
 
-
 a.socials-item:hover {
     box-shadow: 0 0px 20px rgba(84, 1, 74, 0.7);
     border-color: rgba(255, 6, 224, 0.61);
@@ -180,12 +177,10 @@ a.socials-item:hover {
     color: white;
 }
 
-
 footer p, footer li {
     font-size: 15px;
     line-height: 22px;
 }
-
 
 .widget {
     margin-bottom: 50px;
@@ -198,7 +193,7 @@ footer p, footer li {
     text-transform: capitalize;
     padding-bottom: 15px;
     font-size: 16px;
-    position: relative;
+    /* position: relative; */
 }
 
 .footer-title:after {
@@ -302,6 +297,7 @@ textarea {
     margin: 0;
     line-height: 0;
 }
+
 .wpcf7-form .contact-form-footer .wpcf7-submit {
     background-color: #394050;
     color: #99a9b5;
@@ -351,13 +347,16 @@ img {
     max-width: 100%;
     vertical-align: middle;
 }
+
 .widget_gallery a {
     display: inline-block;
 }
+
 footer .widget ul {
     list-style: none;
     margin-top: 5px;
 }
+
 .widget_gallery ul {
     padding-left: 0;
     display: table;
@@ -366,7 +365,6 @@ footer .widget ul {
 .widget_gallery li {
     display: inline-block;
     width: 33.33%;
-    float: left;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
@@ -377,7 +375,6 @@ footer .widget ul {
 .widget_gallery.gallery-grid-4 li {
     width: 30%;
 }
-
 
 #waterdrop {
     height: 30px;
@@ -391,6 +388,3 @@ footer .widget ul {
 {
   padding-top: 10px;
 }
-
-
-/* styles.css or styles.scss */
