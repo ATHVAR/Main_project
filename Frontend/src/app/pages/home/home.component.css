@@ -1,52 +1,114 @@
-/* .card{
-    margin-top: 120px;
-    margin-left: 190px;
-    background-color: rgb(193, 201, 201);
+/* Custom styles for the sidebar */
+.sidebar {
+  font-family: 'Roboto', sans-serif;
+  background-color: #007bff; /* Set a catchy background color */
+  color: #fff; /* Text color for the sidebar */
+  height: 100vh;
+  position:fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding-top: 20px;
+  width: 220px; /* Set the sidebar width */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
 }
 
-.custom-card {
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.9); 
-    transition: box-shadow 0.3s, transform 0.3s; 
-    transform: scale(1);
-  }
-  
-  .custom-card:hover {
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); 
-    transform: scale(1.05); 
-  }
-  #card1{
-margin-left: 550px;
-margin-top: -399px;
-  }
-  
-  
-.learner-tracker {
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+.sidebar .logo-container {
   text-align: center;
-  margin: 20px auto;
-  max-width: 600px;
-  margin-left: 870px;
-  margin-top: -300px;
+  padding: 10px;
 }
 
-.tracker-title {
-  font-size: 28px;
-  font-weight: bold;
-  color: #007bff; 
+.sidebar .logo-container img {
+  max-width: 100px; /* Reduce the logo size */
+}
+
+.sidebar ul.navbar-nav {
+  padding: 0;
+}
+
+.sidebar .nav-item {
+  list-style: none;
   margin-bottom: 10px;
 }
 
-.tracker-description {
-  font-size: 18px;
-  color: #000000; 
-  line-height: 1.6;
+.sidebar .nav-link {
+  font-weight: 500;
+  display: block;
+  padding: 10px 20px;
+  color: #fff; /* Text color for the links in the sidebar */
+  text-decoration: none;
 }
 
+.sidebar .nav-link:hover {
+  background-color: #0056b3; /* Change the color on hover */
+}
 
-.learner-tracker:hover {
+/* Custom styles for the content area */
+.content {
+  margin-left: 220px;
+  padding: 20px;
+}
+
+/* Add some styles for the logout button */
+.sidebar .logout-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  color: #fff;
+  text-decoration: none;
+  background-color: #dc3545; /* Red color for the logout button */
+}
+
+.sidebar .logout-button:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+/* Style for the active menu item */
+.sidebar .active {
+  background-color: #0056b3; /* Highlight the active menu item */
+}
+
+.dropdown-menu {
+  font-family: 'Roboto', sans-serif;
+  background-image: linear-gradient(to bottom, #f8f9fa, #cfd8dc);
+  /* Add vendor prefixes and other gradient styles for cross-browser compatibility */
+}
+.dropdown-item {
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #e9ecef;
   transform: scale(1.05);
-  transition: transform 0.3s ease;
-} */
+}
+.dropdown-menu {
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.dropdown-toggle::after {
+  content: '\25BE';
+  margin-left: 5px;
+}
+.dropdown-item {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+}
+.dropdown-item.active,
+.dropdown-item:focus {
+  background-color: #cfd8dc;
+  color: #333;
+}
+.dropdown-menu {
+  animation: fadeIn 0.2s ease-in-out;
+  /* Add keyframes and define the fadeIn animation */
+}
+@media (max-width: 992px) {
+  .sidebar {
+    width: 100%; /* Make the sidebar take the full width on medium-sized screens */
+  }
+
+  .sidebar .navbar-collapse {
+    margin-top: 20px;
+  }
+}
