@@ -14,14 +14,17 @@ export class AdduserComponent {
   addUser(): void {
     this.userDataService.addUser(this.user).subscribe(
       (response) => {
-        console.log(response.message);
-        // Clear the form or do any other action after adding user
+        window.alert('User added successfully!');
+        this.clearForm();
       },
       (error) => {
+        window.alert('Error adding user. Please try again.');
         console.error(error);
-        // Handle error if necessary
       }
     );
   }
-}
 
+  clearForm(): void {
+    this.user = {}; // Clear the form fields
+  }
+}
