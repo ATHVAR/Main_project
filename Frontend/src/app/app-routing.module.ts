@@ -9,7 +9,7 @@ import { ViewstudentsComponent } from './pages/students/viewstudents/viewstudent
 import { AddstudentsComponent } from './pages/students/addstudents/addstudents.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { ChangepassComponent } from './pages/changepass/changepass.component';
-import { EdituserComponent } from './pages/users/edituser/edituser.component';
+import { EditUserComponent } from './pages/users/edituser/edituser.component';
 import { EditstudentComponent } from './pages/students/editstudent/editstudent.component';
 import { CsvComponent } from './pages/csv/csv.component';
 
@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'viewuser', component: ViewuserComponent },
   { path: 'adduser', component: AdduserComponent },
-  { path: 'edituser', component: EdituserComponent },
+  { path: 'edituser/:id', component: EditUserComponent },
   { path: 'viewstuds', component: ViewstudentsComponent },
   { path: 'addstuds', component: AddstudentsComponent },
   { path: 'editstuds/:id', component: EditstudentComponent }, // Add ':id' parameter for student ID

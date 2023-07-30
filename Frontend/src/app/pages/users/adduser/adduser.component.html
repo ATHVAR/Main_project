@@ -1,7 +1,7 @@
 <app-navigation></app-navigation>
 
 <div class="registration-form">
-    <form class="bg-light">
+    <form class="bg-light" (submit)="addUser()">
         <div class="form-icon">
             <span><i class="bi bi-person-fill-add"></i></span>
         </div>
@@ -10,19 +10,19 @@
         </div>
         <br>
         <div class="form-group">
-            <input type="text" class="form-control item" id="username" placeholder="Name">
+            <input type="text" class="form-control item" id="username" name="username" placeholder="Name" [(ngModel)]="user.name">
         </div>
         <div class="form-group">
-            <select id="disabledSelect" class="form-select item">
+            <select id="disabledSelect" class="form-select item" name="role" [(ngModel)]="user.role">
                 <option>Training Head</option>
                 <option>Placement Officer</option>
             </select>
         </div>
         <div class="form-group">
-            <input type="text" class="form-control item" id="email" placeholder="Email">
+            <input type="text" class="form-control item" id="email" name="email" placeholder="Email" [(ngModel)]="user.email">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control item" id="phone-number" placeholder="Password">
+            <input type="text" class="form-control item" id="phone-number" name="password" placeholder="Password" [(ngModel)]="user.password">
         </div>
         <div class="form-group d-flex justify-content-evenly">
             <button type="submit" class="btn btn-block add-account"><i class="bi bi-person-fill-add"></i> Add</button>
@@ -30,8 +30,3 @@
         </div>
     </form>
 </div>
-
-<!-- scriptfiles -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-<script src="assets/js/script.js"></script>

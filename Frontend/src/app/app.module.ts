@@ -16,12 +16,13 @@ import { AddstudentsComponent } from './pages/students/addstudents/addstudents.c
 import { ViewstudentsComponent } from './pages/students/viewstudents/viewstudents.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { ChangepassComponent } from './pages/changepass/changepass.component';
-import { EdituserComponent } from './pages/users/edituser/edituser.component';
+import { EditUserComponent } from './pages/users/edituser/edituser.component';
 import { EditstudentComponent } from './pages/students/editstudent/editstudent.component';
 import { CsvComponent } from './pages/csv/csv.component';
 import { StudentdataService } from './shared/studentdata.service';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserdataService } from './userdata.service';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ViewstudentsComponent,
     ErrorComponent,
     ChangepassComponent,
-    EdituserComponent,
+    EditUserComponent,
     EditstudentComponent,
     CsvComponent
   
@@ -52,7 +53,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     BrowserAnimationsModule
   ],
-  providers: [LoginService,LoginFormVisibilityService,StudentdataService],
+  providers: [LoginService,LoginFormVisibilityService,StudentdataService, UserdataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
