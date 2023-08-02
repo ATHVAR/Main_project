@@ -1,20 +1,17 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 body{
-background-image: url(assets/download.jpg);
-background-size: cover;
-height: 132vh;
 }
 
 .page-wrapper
 {
-      position: absolute;
+      position: relative;
     bottom: 0;
     width: 100%;
     z-index: 11111;
-    top: 35px;
-    margin-top: 730px;
-    padding-top: 100px;
+    top: 0px;
+    margin-top: 0px;
+    padding-top: 0px;
 }
 
 footer p, footer strong, footer b, footer {

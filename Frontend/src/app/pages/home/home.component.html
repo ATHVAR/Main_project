@@ -1,5 +1,5 @@
 
-<app-navigation></app-navigation>
+<!-- <app-navigation></app-navigation> -->
 
 <!-- <marquee behavior="scroll" direction="left">Notifications: <a href="">Links</a></marquee>
 
@@ -37,7 +37,7 @@
 
 <!-- sidenav.component.html -->
 <!-- Side Navbar -->
-
+<!-- 
 <div class="container-fluid">
     <div class="row">
       <div class="col-md-2 col-lg-3 sidebar">
@@ -70,5 +70,129 @@
             <a class="nav-link" routerLink="/passchange"><i class="bi bi-gear"></i> Change Password</a>
             </li>
         </ul>
+        </div> -->
+    <!-- </div> -->
+
+
+    
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav #sidebar id="sidebar" [ngClass]="{'active': isSidebarActive}">
+        <div class="sidebar-header">
+            <h3>ICTAK Learner Tracker</h3>
         </div>
-    </div>
+
+        <ul class="list-unstyled components">
+           <a href="" routerLink="/home"><p>Home / Dashboard </p></a> 
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admin Panel</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a  (click)="loadAddUser()">+ Add User</a>
+                    </li>
+                    <li>
+                        <a (click)="loadViewUser()">/ Veiw Users</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Student Panel</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#" routerLink="/addstuds">+ Add Students</a>
+                    </li>
+                    <li>
+                        <a href="#" routerLink="/csv">* CSV-upload</a>
+                    </li>
+                    <li>
+                        <a href="#" routerLink="/viewstuds">/ View Students</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"></a>
+            </li>
+            <li>
+                <a href="#"></a>
+            </li>
+        </ul>
+
+        <ul class="list-unstyled CTAs">
+            <li>
+                <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download"></a>
+            </li>
+            <li>
+                <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article"></a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <ng-container *ngIf="isAddUserActive">
+            <app-adduser></app-adduser>
+          </ng-container>
+          <ng-container *ngIf="isViewUserActive">
+            <app-view-user></app-view-user>
+          </ng-container>
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button (click)="toggleSidebar()" type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Toggle Sidebar</span>
+                </button>
+                
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                
+
+                <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Page 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Page 2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Page 3</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Page 4</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <h2>Collapsible Sidebar Using Bootstrap 4</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <div class="line"></div>
+
+        <h2>Lorem Ipsum Dolor</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <div class="line"></div>
+
+        <h2>Lorem Ipsum Dolor</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <div class="line"></div>
+
+        <h3>Lorem Ipsum Dolor</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.dasnlksndk<br>
+        sjhdvjhdbhsdbhksdjvkjvj<br>
+        asbhbasjhdbahsbdkabsdkahsbdk<br>
+        jbkajsbjabckjacaksjcakjscjckj<br>
+        </p> -->
+    <!-- </div> -->
+</div>
+

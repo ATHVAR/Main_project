@@ -23,6 +23,7 @@ import { StudentdataService } from './shared/studentdata.service';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserdataService } from './userdata.service';
+import { FooterComponent } from './pages/footer/footer.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { UserdataService } from './userdata.service';
     ChangepassComponent,
     EditUserComponent,
     EditstudentComponent,
-    CsvComponent
+    CsvComponent,
+    FooterComponent
   
     
   ],
