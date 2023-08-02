@@ -1,9 +1,6 @@
 import { Component, OnInit , ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { INavbarData } from './helper';
-import { navbarData } from './nav-data';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,7 +16,6 @@ export class HomeComponent implements OnInit{
   dropdownStates: { [key: string]: boolean } = {}
 
   collapsed = false;
-  navData: INavbarData[] = navbarData;
   isAddUserActive: boolean = false;
   isViewUserActive :boolean = false;
 
@@ -28,8 +24,6 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void {
     
   }
-
- 
 
   toggleCollapse(): void {
     this.collapsed = !this.collapsed;
@@ -49,10 +43,10 @@ export class HomeComponent implements OnInit{
       this.renderer.removeClass(this.sidebar.nativeElement, 'active');
     }
     if (this.isSidebarActive) {
-      this.isAddUserActive = false; // Hide AddUser when sidebar is toggled
+      this.isAddUserActive = true; // Hide AddUser when sidebar is toggled
     }
-    
   }
+
   loadAddUser(): void {
     this.isAddUserActive = true;
     this.isSidebarActive = true; // Close sidebar when AddUser is loaded
@@ -64,6 +58,7 @@ export class HomeComponent implements OnInit{
     this.isSidebarActive=true;
     this.isAddUserActive=false;
   }
+
   toggleDropdown(submenuId: string): void {
     const submenu = document.getElementById(submenuId);
     if (submenu) {
