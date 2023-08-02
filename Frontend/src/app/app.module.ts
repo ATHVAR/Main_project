@@ -11,7 +11,6 @@ import { LoginFormVisibilityService } from './shared/login-form-visiblity.servic
 import { HttpClientModule } from '@angular/common/http';
 import { ViewuserComponent } from './pages/users/viewuser/viewuser.component';
 import { AdduserComponent } from './pages/users/adduser/adduser.component';
-import { NavigationComponent } from './pages/navigation/navigation.component';
 import { AddstudentsComponent } from './pages/students/addstudents/addstudents.component';
 import { ViewstudentsComponent } from './pages/students/viewstudents/viewstudents.component';
 import { ErrorComponent } from './pages/error/error.component';
@@ -22,8 +21,8 @@ import { CsvComponent } from './pages/csv/csv.component';
 import { StudentdataService } from './shared/studentdata.service';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserdataService } from './userdata.service';
-import { FooterComponent } from './pages/footer/footer.component';
+import { UserdataService } from './shared/userdata.service';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -34,7 +33,6 @@ import { FooterComponent } from './pages/footer/footer.component';
     HomeComponent,
     ViewuserComponent,
     AdduserComponent,
-    NavigationComponent,
     AddstudentsComponent,
     ViewstudentsComponent,
     ErrorComponent,

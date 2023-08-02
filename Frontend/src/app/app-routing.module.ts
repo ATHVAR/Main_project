@@ -12,20 +12,26 @@ import { ChangepassComponent } from './pages/changepass/changepass.component';
 import { EditUserComponent } from './pages/users/edituser/edituser.component';
 import { EditstudentComponent } from './pages/students/editstudent/editstudent.component';
 import { CsvComponent } from './pages/csv/csv.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: NavbarComponent },
   { path: 'home', component: HomeComponent },
+
   { path: 'viewuser', component: ViewuserComponent },
   { path: 'adduser', component: AdduserComponent },
   { path: 'edituser/:id', component: EditUserComponent },
+
   { path: 'viewstuds', component: ViewstudentsComponent },
   { path: 'addstuds', component: AddstudentsComponent },
   { path: 'editstuds/:id', component: EditstudentComponent }, // Add ':id' parameter for student ID
+ 
   { path: 'passchange', component: ChangepassComponent },
   { path: 'csv', component: CsvComponent },
-  { path: '**', component: ErrorComponent }
+ 
+  { path: '**', component: ErrorComponent },
+
   // Other routes for your application
 ];
 

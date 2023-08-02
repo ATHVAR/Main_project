@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserdataService } from 'src/app/userdata.service';
+import { UserdataService } from 'src/app/shared/userdata.service';
 
 @Component({
   selector: 'app-edituser',

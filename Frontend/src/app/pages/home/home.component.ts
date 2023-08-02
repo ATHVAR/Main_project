@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit{
   toggleCollapse(): void {
     this.collapsed = !this.collapsed;
   }
+
   logout(){
     // after implementing tokenization
     // localStorage.removeItem('token');

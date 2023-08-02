@@ -1,198 +1,92 @@
+<!-- Notification -->
+<div class="card text-center bg-primary-subtle">
+    <marquee behavior="scroll" direction="left" onMouseOver="this.stop()" onMouseOut="this.start()"><a href="">Notifications can be passed here !</a></marquee>
+</div>
 
-<!-- <app-navigation></app-navigation> -->
-
-<!-- <marquee behavior="scroll" direction="left">Notifications: <a href="">Links</a></marquee>
-
-<div>
-    <div class="row d-flex justify content">
-        <div class="col">
-            <div class="card" style="width: 18rem; height: 25rem;">
-                <img class="card-img-top" src="assets/banner4.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">ICTAK Paatshala</h5>
-                  <p class="card-text">ICT Academy of Kerala is a Social Enterprise created in a Public Private Partnership model (PPP) for imparting ICT skills to the youths of Kerala.</p>
-                  <a href="https://retail.ictkerala.org/" class="btn btn-primary">Go To Paatshala</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 18rem; height: 25rem;">
-                <img class="card-img-top" src="assets/download - Copy.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Digital Workforce Management System</h5>
-                  <p class="card-text">A Kerala Development and Innovation Strategic Council (K-DISC) initiative, Kerala Knowledge Economy Mission (KKEM)</p>
-                  <a href="https://knowledgemission.kerala.gov.in/" class="btn btn-primary">Go To DWMS</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-
-
-
-
-<router-outlet></router-outlet>
-
-<!-- sidenav.component.html -->
-<!-- Side Navbar -->
-<!-- 
-<div class="container-fluid">
-    <div class="row">
-      <div class="col-md-2 col-lg-3 sidebar">
-        <div class="logo-container">
-        <a class="logofont navbar-brand"><img id="logo" src="assets/LOGO_ICTAK-Name.jpg" alt=""></a>
-    </div>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/home"><i class="bi bi-house"></i> Home</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-lock"></i> Admin Panel</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" routerLink="/adduser"><i class="bi bi-person-plus"></i> Add User</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" routerLink="/viewuser"><i class="bi bi-person-badge"></i> View Users</a></li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-people-fill"></i> Student Panel</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" routerLink="/addstuds"><i class="bi bi-person-plus"></i> Add Student</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" routerLink="/viewstuds"><i class="bi bi-person-badge"></i> View Students</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" routerLink="/csv" ><i class="bi bi-file-earmark-arrow-up-fill"></i> CSV Upload</a></li>
-                </ul>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" routerLink="/passchange"><i class="bi bi-gear"></i> Change Password</a>
-            </li>
-        </ul>
-        </div> -->
-    <!-- </div> -->
-
-
-    
+<!-- Side bar -->
 <div class="wrapper">
-    <!-- Sidebar  -->
     <nav #sidebar id="sidebar" [ngClass]="{'active': isSidebarActive}">
         <div class="sidebar-header">
             <h3>ICTAK Learner Tracker</h3>
         </div>
-
         <ul class="list-unstyled components">
-           <a href="" routerLink="/home"><p>Home / Dashboard </p></a> 
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admin Panel</a>
+            <!-- add home component *** -->
+            <a routerLink="/home"><p><i class="bi bi-house"></i> Home</p></a> 
+            <li>
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bi bi-person-lock"></i> Admin Panel</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a  (click)="loadAddUser()">+ Add User</a>
+                        <a (click)="loadAddUser()"><i class="bi bi-person-plus"></i> Add User</a>
                     </li>
                     <li>
-                        <a (click)="loadViewUser()">/ Veiw Users</a>
+                        <a (click)="loadViewUser()"><i class="bi bi-person-badge"></i> View Users</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Student Panel</a>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bi bi-people-fill"></i> Student Panel</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a href="#" routerLink="/addstuds">+ Add Students</a>
+                        <a routerLink="/addstuds"><i class="bi bi-person-plus"></i> Add Students</a>
                     </li>
                     <li>
-                        <a href="#" routerLink="/csv">* CSV-upload</a>
+                        <a routerLink="/viewstuds"><i class="bi bi-person-badge"></i> View Students</a>
                     </li>
                     <li>
-                        <a href="#" routerLink="/viewstuds">/ View Students</a>
+                        <a routerLink="/csv"><i class="bi bi-file-earmark-arrow-up-fill"></i> CSV-upload</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#"></a>
-            </li>
-            <li>
-                <a href="#"></a>
+                <a class="nav-link" routerLink="/passchange"><i class="bi bi-gear"></i> Change Password</a>
             </li>
         </ul>
-
         <ul class="list-unstyled CTAs">
             <li>
-                <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download"></a>
-            </li>
-            <li>
-                <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article"></a>
+                <button class="button-89" (click)="logout()" role="button"><i class="bi bi-box-arrow-left"></i> Logout</button>
             </li>
         </ul>
     </nav>
 
     <!-- Page Content  -->
     <div id="content">
-
-        <ng-container *ngIf="isAddUserActive">
-            <app-adduser></app-adduser>
-          </ng-container>
-          <ng-container *ngIf="isViewUserActive">
-            <app-view-user></app-view-user>
-          </ng-container>
-
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-
                 <button (click)="toggleSidebar()" type="button" id="sidebarCollapse" class="btn btn-info">
                     <i class="fas fa-align-left"></i>
-                    <span>Toggle Sidebar</span>
+                    <span> Menu</span>
                 </button>
-                
-                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-align-justify"></i>
-                </button>
-
-                
-
-                <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Page 1</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Page 2</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Page 3</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Page 4</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </nav>
+        <ng-container *ngIf="isAddUserActive">
+            <app-adduser></app-adduser>
+        </ng-container>
+        <ng-container *ngIf="isViewUserActive">
+            <app-view-user></app-view-user>
+        </ng-container>
 
-        <h2>Collapsible Sidebar Using Bootstrap 4</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-        <div class="line"></div>
-
-        <h2>Lorem Ipsum Dolor</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <div class="line"></div>
-
-        <h2>Lorem Ipsum Dolor</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <div class="line"></div>
-
-        <h3>Lorem Ipsum Dolor</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.dasnlksndk<br>
-        sjhdvjhdbhsdbhksdjvkjvj<br>
-        asbhbasjhdbahsbdkabsdkahsbdk<br>
-        jbkajsbjabckjacaksjcakjscjckj<br>
-        </p> -->
-    <!-- </div> -->
+        <div class="row d-flex justify-content-evenly">
+            <div class="col">
+                <div class="card" style="width: 18rem; height: 25rem;">
+                    <img class="card-img-top" src="assets/banner4.jpg" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">ICTAK Paatshala</h5>
+                    <p class="card-text">ICT Academy of Kerala is a Social Enterprise created in a Public Private Partnership model (PPP) for imparting ICT skills to the youths of Kerala.</p>
+                    <a href="https://retail.ictkerala.org/" class="btn btn-primary">Go To Paatshala</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem; height: 25rem;">
+                    <img class="card-img-top" src="assets/download - Copy.jpg" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">Digital Workforce Management System</h5>
+                    <p class="card-text">A Kerala Development and Innovation Strategic Council (K-DISC) initiative, Kerala Knowledge Economy Mission (KKEM)</p>
+                    <a href="https://knowledgemission.kerala.gov.in/" class="btn btn-primary">Go To DWMS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
