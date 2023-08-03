@@ -24,12 +24,7 @@ export class NavbarComponent {
 
   onLoginSubmitted() {
     // This function will be called when the login form is submitted
-    // Implement your login logic here
-    // For simplicity, we will just consider a successful login
     this.loginFormVisibilityService.setLoggedIn(true);
   }
 
-  onCancel() {
-    this.loginFormVisibilityService.setShowLoginFormVisibility(false);
-  }
 }

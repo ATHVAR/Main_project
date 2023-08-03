@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './pages/landingpage/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './components/sidenav/home.component';
 import { LoginService } from './shared/link.service';
 import { LoginFormVisibilityService } from './shared/login-form-visiblity.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,7 +14,7 @@ import { AdduserComponent } from './pages/users/adduser/adduser.component';
 import { AddstudentsComponent } from './pages/students/addstudents/addstudents.component';
 import { ViewstudentsComponent } from './pages/students/viewstudents/viewstudents.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { ChangepassComponent } from './pages/changepass/changepass.component';
+import { ChangepassComponent } from './pages/addnotification/changepass.component';
 import { EditUserComponent } from './pages/users/edituser/edituser.component';
 import { EditstudentComponent } from './pages/students/editstudent/editstudent.component';
 import { CsvComponent } from './pages/csv/csv.component';
@@ -23,6 +23,9 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserdataService } from './shared/userdata.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { NotificationService } from './shared/notification.service';
+import { ViewmessageComponent } from './pages/viewmessage/viewmessage.component';
+import { HomedataComponent } from './pages/homedata/homedata.component';
 
 
 @NgModule({
@@ -40,9 +43,9 @@ import { FooterComponent } from './components/footer/footer.component';
     EditUserComponent,
     EditstudentComponent,
     CsvComponent,
-    FooterComponent
-  
-    
+    FooterComponent,
+    ViewmessageComponent,
+    HomedataComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,7 @@ import { FooterComponent } from './components/footer/footer.component';
     CommonModule,
     BrowserAnimationsModule
   ],
-  providers: [LoginService,LoginFormVisibilityService,StudentdataService, UserdataService],
+  providers: [LoginService,LoginFormVisibilityService,StudentdataService, UserdataService,NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

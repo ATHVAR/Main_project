@@ -42,10 +42,58 @@ const studentSchema=new mongoose.Schema({
 
 const Student=mongoose.model('Studentdetail',studentSchema);
 
+// Message Schema
+const notificationSchema=new mongoose.Schema({
+  notificationmess:String
+})
+
+const Noti=mongoose.model('Notification',notificationSchema);
+
+
 app.use(bodyParser.json());
 app.use(cors());
 
+// Notification operations
+// Add
+app.post('/addmess', (req,res)=>{
+  console.log(req.body);
+  const newNoti=new Noti({
+    notificationmess:req.body.notificationmess
+  });
+  newNoti.save()
+    .then(()=>{
+      res.status(200).json({message:'Message Added'});
+    })
+    .catch((error)=>{
+      res.status(500).json({error:'Failed to Add Message'});
+    })
+})
 
+// View 
+app.get('/viewmess',(req,res)=>{
+  Noti.find()
+  .then((notification)=>{
+    res.status(200).json(notification);
+  })
+  .catch((error)=>{
+    res.status(500).json({error:'Failed to Fetch'});
+  })
+});
+
+// Delete
+app.delete('/deletemess/:_id',(req, res) => {
+  Noti.findByIdAndRemove(req.params._id)
+  .then((notification)=>{
+    if (notification){
+      res.status(200).json({message:'Message deleted successfully'});
+    }else{
+      res.status(404).json({error:'Message not found'});
+    }
+  })
+  .catch((error)=>{
+    res.status(500).json({error:'Failed to delete Message'});
+  });
+});
 
 // Login route
 app.post('/login', (req, res) => {

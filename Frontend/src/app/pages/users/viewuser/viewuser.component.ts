@@ -39,6 +39,7 @@ export class ViewuserComponent implements OnInit {
       () => {
         // Reload the user list after successful deletion
         this.fetchUsers();
+        alert('User Deleted');
       },
       (error) => {
         console.error(error);

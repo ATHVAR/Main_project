@@ -1,16 +1,10 @@
-
-
-<div class="addbtn m-3 text-center">
-  <button class="btn btn-outline-success" routerLink="/adduser"><i class="bi bi-person-plus"></i> Add new</button>
-</div>
-
 <!-- user details in card form -->
-<div class="container text-center d-flex mt-5">
+<div class="container text-center mt-5">
   <div class="row">
-    <div class="col-6" *ngFor="let user of users">
-      <div class="card border border-success p-2 mb-2 border-opacity-75" style="width: 18rem;">
+    <div class="col" *ngFor="let user of users">
+      <div class="card border border-success mb-2 border-opacity-75" style="width: 19rem;">
         <div class="icon">
-          <img src="assets/person_circle_icon_159926.png" class="card-img-top" alt="...">
+          <img src="assets/person_circle_icon_159926.png" class="card-img-top" alt="icon">
         </div>
         <div class="card-body bg-body-tertiary">
           <h5 class="card-title">{{ user.role }}</h5>

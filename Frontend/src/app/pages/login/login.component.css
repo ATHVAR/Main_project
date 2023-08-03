@@ -1,7 +1,4 @@
-
-
-  /* new css */
-  *,
+*,
 *:before,
 *:after{
     padding: 0;
@@ -103,5 +100,3 @@ button{
     cursor: pointer;
     margin-top: 20px ;
 }
-
-
