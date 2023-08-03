@@ -18,6 +18,9 @@ export class HomeComponent implements OnInit{
   collapsed = false;
   isAddUserActive: boolean = false;
   isViewUserActive :boolean = false;
+  isAddStudentActive : boolean = false;
+  isEditStudentActive : boolean = false;
+  isCsvActive : boolean = false;
 
   constructor(private router:Router, private renderer: Renderer2){}
 
@@ -42,21 +45,57 @@ export class HomeComponent implements OnInit{
     } else {
       this.renderer.removeClass(this.sidebar.nativeElement, 'active');
     }
-    if (this.isSidebarActive) {
-      this.isAddUserActive = true; // Hide AddUser when sidebar is toggled
-    }
+    // if (this.isSidebarActive) {
+    //   this.isAddUserActive = true; // Hide AddUser when sidebar is toggled
+    // }
+
   }
 
   loadAddUser(): void {
     this.isAddUserActive = true;
     this.isSidebarActive = true; // Close sidebar when AddUser is loaded
     this.isViewUserActive=false;
+    this.isAddStudentActive=false;
+    this.isEditStudentActive = false;
+    this.isCsvActive  = false;
   }
   
   loadViewUser(): void {
     this.isViewUserActive=true;
     this.isSidebarActive=true;
     this.isAddUserActive=false;
+    this.isAddStudentActive=false;
+    this.isEditStudentActive=false;
+    this.isCsvActive  = false;
+  }
+
+  loadAddStudent(): void {
+    this.isAddStudentActive=true;
+    this.isSidebarActive=true;
+    this.isAddUserActive=false;
+    this.isViewUserActive=false;
+    this.isEditStudentActive=false;
+    this.isCsvActive = false;
+    
+  }
+
+  loadEditStudent(): void {
+    this.isEditStudentActive=true;
+    this.isSidebarActive= true;
+    this.isAddStudentActive=false;
+    this.isAddUserActive=false;
+    this.isViewUserActive=false;
+    this.isCsvActive=false;
+  }
+
+  loadCsv() : void {
+    this.isCsvActive=true;
+    this.isSidebarActive=true;
+    this.isAddStudentActive=false;
+    this.isAddUserActive=false;
+    this.isEditStudentActive=false;
+    this.isViewUserActive=false;
+
   }
 
   toggleDropdown(submenuId: string): void {

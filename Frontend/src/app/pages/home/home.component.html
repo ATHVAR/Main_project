@@ -27,13 +27,13 @@
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bi bi-people-fill"></i> Student Panel</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a routerLink="/addstuds"><i class="bi bi-person-plus"></i> Add Students</a>
+                        <a (click)="loadAddStudent()"><i class="bi bi-person-plus"></i> Add Students</a>
                     </li>
                     <li>
-                        <a routerLink="/viewstuds"><i class="bi bi-person-badge"></i> View Students</a>
+                        <a (click)="loadEditStudent()"><i class="bi bi-person-badge"></i> View Students</a>
                     </li>
                     <li>
-                        <a routerLink="/csv"><i class="bi bi-file-earmark-arrow-up-fill"></i> CSV-upload</a>
+                        <a (click)="loadCsv()"><i class="bi bi-file-earmark-arrow-up-fill"></i> CSV-upload</a>
                     </li>
                 </ul>
             </li>
@@ -63,6 +63,15 @@
         </ng-container>
         <ng-container *ngIf="isViewUserActive">
             <app-view-user></app-view-user>
+        </ng-container>
+        <ng-container *ngIf="isAddStudentActive">
+            <app-addstudents></app-addstudents>
+        </ng-container>
+        <ng-container *ngIf="isEditStudentActive">
+            <app-viewstudents></app-viewstudents>
+        </ng-container>
+        <ng-container *ngIf="isCsvActive">
+            <app-csv></app-csv>
         </ng-container>
 
 
