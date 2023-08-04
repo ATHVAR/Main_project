@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit{
   dropdownStates: { [key: string]: boolean } = {}
 
   collapsed = false;
-  isHomeActive:boolean=false;
+  isHomeActive:boolean=true;
   isAddUserActive: boolean = false;
   isViewUserActive :boolean = false;
   isAddStudentActive : boolean = false;
@@ -114,7 +114,7 @@ export class HomeComponent implements OnInit{
     this.isAddNotification=false;
     this.isHomeActive =true;
     this.isAddUserActive = false;
-    this.isSidebarActive = false;
+    this.isSidebarActive = true;
     this.isViewUserActive=false;
     this.isAddStudentActive=false;
     this.isEditStudentActive = false;

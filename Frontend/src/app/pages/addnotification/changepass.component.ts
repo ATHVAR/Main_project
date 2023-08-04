@@ -7,6 +7,7 @@ import { NotificationService } from 'src/app/shared/notification.service';
   styleUrls: ['./changepass.component.css']
 })
 export class ChangepassComponent implements OnInit {
+
   notification={
     notificationmess:''
   }
@@ -18,6 +19,9 @@ export class ChangepassComponent implements OnInit {
   submit(){
     this.serv.addmessage(this.notification).subscribe((res=>{
       alert("message posted");
-    }))
+      this.notification = {
+        notificationmess:''
+      };
+    }));
   }
 }

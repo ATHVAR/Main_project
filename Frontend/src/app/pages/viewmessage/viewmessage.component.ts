@@ -18,8 +18,8 @@ export class ViewmessageComponent implements OnInit{
   
   delmess(id:any){
   this.serv.delmessage(id).subscribe(data=>console.log(data))
-  this.fetchmessage();
   alert('message deleted')
+    this.fetchmessage();
   }
 
   fetchmessage():void{

@@ -11,8 +11,13 @@
           <p class="card-text">Name: {{ user.name }}</p>
           <p class="card-text">Email: {{ user.email }}</p>
           <div class="button d-flex justify-content-evenly">
-            <a [routerLink]="'/edituser/' + user._id" class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i> Edit</a>
-            <button class="btn btn-outline-danger" (click)="deleteUser(user._id)"><i class="bi bi-trash3-fill"></i> Delete</button>
+            <!-- enabled -->
+            <button *ngIf="user.role!=='Admin'" [routerLink]="'/edituser/' + user._id" class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i> Edit</button>
+            <button *ngIf="user.role!=='Admin'" class="btn btn-outline-danger" (click)="deleteUser(user._id)"><i class="bi bi-trash3-fill"></i> Delete</button>
+            <!-- disabled if admin -->
+            <!-- id: admin@email.com pass: admin123 -->
+            <button *ngIf="user.role=='Admin'" [routerLink]="'/edituser/' + user._id" class="btn btn-outline-primary" disabled><i class="bi bi-pencil-square"></i> Edit</button>
+            <button *ngIf="user.role=='Admin'" class="btn btn-outline-danger" disabled><i class="bi bi-trash3-fill"></i> Delete</button>
           </div>
         </div>
       </div>
