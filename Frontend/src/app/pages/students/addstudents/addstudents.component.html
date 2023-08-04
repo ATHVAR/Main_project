@@ -73,7 +73,7 @@
         <br>
         <div class="form-group d-flex justify-content-evenly">
             <button type="submit" [disabled]="addstud.invalid" class="btn btn-block add-account"><i class="bi bi-person-fill-add"></i> Add</button>
-            <button routerLink="/viewstuds" class="btn btn-block discard-account"><i class="bi bi-x-circle-fill"></i> Discard</button>
+            <button type="button" (click)="cancel()" class="btn btn-block discard-account" ><i class="bi bi-x-circle-fill"></i> Discard</button>
         </div>
     </form>
 </div>

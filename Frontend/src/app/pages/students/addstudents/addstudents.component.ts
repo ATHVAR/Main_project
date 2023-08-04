@@ -20,14 +20,26 @@ export class AddstudentsComponent implements OnInit{
     status:'',
     placement:''
   }
-  constructor(public serv:StudentdataService,public router:Router){}
+  constructor(public serv:StudentdataService,private router:Router){}
   ngOnInit(): void {
     
   }
   submit(){
     this.serv.addstudent(this.studdetail).subscribe((res=>{
-      alert("Student Added");
-      this.router.navigate(['viewstuds']);
+      alert("Student Added")
+      this.cancel();
     }))
+    
+  }
+  cancel():void{
+    this.studdetail = { 
+      id: '',
+      name: '',
+      course: '',
+      project: '',
+      batch: '',
+      status: '',
+      placement: ''
+    };
   }
 }

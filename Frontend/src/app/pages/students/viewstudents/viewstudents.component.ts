@@ -16,12 +16,21 @@ export class ViewstudentsComponent implements OnInit{
       console.log(this.studdetail)
     }))
   }
+
+  fetchstuds():void{
+    this.serv.getstudentdata().subscribe((data=>{
+      this.studdetail=data;
+      console.log(this.studdetail)
+    }))
+  }
+
   edititem(id:any){
     this.router.navigate(['editstuds/'+id]);
   }
+
   delitem(id:any){
     this.serv.delitem(id).subscribe(data=>console.log(data))
     alert('Data deleted')
-    this.router.navigate(['viewstuds'])
+    this.fetchstuds();
   }
 }

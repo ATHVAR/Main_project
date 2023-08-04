@@ -39,11 +39,12 @@ export class EditstudentComponent {
       })
     })
   }
+  
   onsubmit(){
     console.log(this.editform.value)
     this.api.editstud(this.editform.value,this.id).subscribe(data=>{
       console.log(data)
-      this.router.navigate(['viewstuds'])
+      this.router.navigate(['home'])
       alert("Detail updated")
     })
   }

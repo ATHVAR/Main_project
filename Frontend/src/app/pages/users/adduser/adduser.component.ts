@@ -34,6 +34,11 @@ export class AdduserComponent implements OnInit {
   }
 
   clearForm(): void {
-    this.user = {}; // Clear the form fields
+    this.user = {
+      name:'',
+      role:'',
+      email:'',
+      password:''
+    }; // Clear the form fields
   }
 }

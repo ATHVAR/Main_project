@@ -1,7 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { NotificationService } from 'src/app/shared/notification.service';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-changepass',
