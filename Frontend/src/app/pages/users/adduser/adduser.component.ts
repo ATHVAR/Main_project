@@ -7,6 +7,7 @@ import { UserdataService } from 'src/app/shared/userdata.service';
   styleUrls: ['./adduser.component.css']
 })
 export class AdduserComponent implements OnInit {
+
   user:any={
     name:'',
     role:'',
@@ -33,6 +34,8 @@ export class AdduserComponent implements OnInit {
     );
   }
 
+
+
   clearForm(): void {
     this.user = {
       name:'',
@@ -40,5 +43,6 @@ export class AdduserComponent implements OnInit {
       email:'',
       password:''
     }; // Clear the form fields
+
   }
 }

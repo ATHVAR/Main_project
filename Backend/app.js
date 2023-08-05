@@ -226,19 +226,38 @@ app.get('/api/users', async (req, res) => {
   }
 });
 
+app.get('/api/users/:id', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching user', error: error.message });
+  }
+});
+
+
 app.put('/api/users/:id', async (req, res) => {
   try {
-    const { email, password, role } = req.body;
+    const { name, email, password, role } = req.body;
+
+    // Hash the new password before updating
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     const updatedUser = await User.findByIdAndUpdate(
       req.params.id,
-      { email, password, role },
+      { name , email, password: hashedPassword, role },
       { new: true } // Return the updated user after the update
     );
+
     res.status(200).json({ message: 'User updated successfully', user: updatedUser });
   } catch (error) {
     res.status(500).json({ message: 'Error updating user', error: error.message });
   }
 });
+
 
 app.delete('/api/users/:id', async (req, res) => {
   try {

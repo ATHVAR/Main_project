@@ -15,7 +15,7 @@ export class EditUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.userId = params['_id'];
+      this.userId = params['id'];
       this.userDataService.getUserById(this.userId).subscribe(
         (user) => {
           this.user = user;
@@ -29,15 +29,28 @@ export class EditUserComponent implements OnInit {
   }
 
   updateUser(): void {
+    if (this.user.newPassword) {
+      // Handle password update
+      this.user.password = this.user.newPassword;
+    } else {
+      // Remove password property if not updating password
+      delete this.user.password;
+    }
+  
+    console.log('Updating user:', this.user);
+  
     this.userDataService.updateUser(this.userId, this.user).subscribe(
       (response) => {
-        console.log(response.message);
+        console.log('Update successful:', response.message);
         // Handle success or navigate to another page
       },
       (error) => {
-        console.error(error);
+        console.error('Update error:', error);
         // Handle error if necessary
       }
     );
   }
+  
+  
+  
 }
