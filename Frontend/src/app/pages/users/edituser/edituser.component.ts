@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HomeComponent } from 'src/app/components/sidenav/home.component';
 import { UserdataService } from 'src/app/shared/userdata.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class EditUserComponent implements OnInit {
   userId!: string;
   user: any = {};
 
-  constructor(private route: ActivatedRoute, private userDataService: UserdataService) { }
+  constructor(private route: ActivatedRoute, private userDataService: UserdataService,private router:Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -42,6 +43,8 @@ export class EditUserComponent implements OnInit {
     this.userDataService.updateUser(this.userId, this.user).subscribe(
       (response) => {
         console.log('Update successful:', response.message);
+        alert('Edited User')
+        this.router.navigate(['home'])
         // Handle success or navigate to another page
       },
       (error) => {

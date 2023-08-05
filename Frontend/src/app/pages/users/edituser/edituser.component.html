@@ -1,5 +1,5 @@
 <div class="registration-form">
-    <form class="bg-light" (ngSubmit)="updateUser()">
+    <form class="bg-light" #edituser="ngForm" (ngSubmit)="updateUser()">
       <div class="form-icon">
         <span><i class="bi bi-person-exclamation"></i></span>
       </div>
@@ -10,6 +10,7 @@
       <div class="form-group">
         <input type="text" class="form-control item" id="username" placeholder="Name" [(ngModel)]="user.name" name="name">
       </div>
+      <br>
       <div class="form-group">
         <select class="form-select item" id="role" [(ngModel)]="user.role" name="role">
           <option value="" disabled selected>Role</option>
@@ -17,14 +18,19 @@
           <option>Placement Officer</option>
         </select>
       </div>
+      <br>
       <div class="form-group">
         <input type="text" class="form-control item" id="email" placeholder="Email" [(ngModel)]="user.email" name="email">
       </div>
+      <br>
       <div class="form-group">
-        <input type="text" class="form-control item" id="phone-number" placeholder="Password" [(ngModel)]="user.newPassword" name="newPassword">
+        <input type="text" class="form-control item" id="phone-number" placeholder="New Password required" required [(ngModel)]="user.newPassword" name="newPassword"  #newPassword="ngModel" [class.is-invalid]="newPassword.invalid&&newPassword.touched" required pattern="^[a-zA-Z0-9]{6,10}$">
+        <span *ngIf="newPassword.touched &&newPassword.errors?.['required']" class="error-message" >New password is required.</span>
+        <span *ngIf="newPassword.touched &&newPassword.errors?.['pattern']" class="error-message">Min 6 and Max 10 char. No Special Characters.</span>
+        <span *ngIf="newPassword.touched &&!newPassword.errors?.['pattern']&&!newPassword.errors?.['required']" class="success-message">Valid</span>
       </div>
       <div class="form-group d-flex justify-content-evenly">
-        <button type="submit" class="btn btn-block update-account">
+        <button type="submit" class="btn btn-block update-account" [disabled]="edituser.invalid">
             <i class="bi bi-person-fill-up"></i> Update
           </button>
         <button type="button" routerLink="/home" class="btn btn-block cancel-account"><i class="bi bi-x-circle-fill"></i> Cancel</button>

@@ -203,7 +203,7 @@ app.delete('/deleteitem/:_id',(req, res) => {
 
 
 // User/ CRUD operations =>
-
+// Add
 app.post('/api/users', async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
@@ -217,6 +217,7 @@ app.post('/api/users', async (req, res) => {
   }
 });
 
+// Gell all
 app.get('/api/users', async (req, res) => {
   try {
     const users = await User.find({}, '-password'); // Exclude the password field from the response
@@ -226,6 +227,7 @@ app.get('/api/users', async (req, res) => {
   }
 });
 
+// Getone
 app.get('/api/users/:id', async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -238,7 +240,7 @@ app.get('/api/users/:id', async (req, res) => {
   }
 });
 
-
+// edit
 app.put('/api/users/:id', async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
@@ -258,7 +260,7 @@ app.put('/api/users/:id', async (req, res) => {
   }
 });
 
-
+// delete
 app.delete('/api/users/:id', async (req, res) => {
   try {
     await User.findByIdAndRemove(req.params.id);

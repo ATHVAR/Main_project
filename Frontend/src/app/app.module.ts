@@ -26,6 +26,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NotificationService } from './shared/notification.service';
 import { ViewmessageComponent } from './pages/viewmessage/viewmessage.component';
 import { HomedataComponent } from './pages/homedata/homedata.component';
+import { EditbyplacerComponent } from './pages/students/editbyplacer/editbyplacer.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { HomedataComponent } from './pages/homedata/homedata.component';
     CsvComponent,
     FooterComponent,
     ViewmessageComponent,
-    HomedataComponent
+    HomedataComponent,
+    EditbyplacerComponent
   ],
   imports: [
     BrowserModule,

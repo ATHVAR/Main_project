@@ -32,13 +32,13 @@
         <div class="form-group">
             <input type="text" class="form-control item" id="phone-number" name="password" placeholder="Password" required [(ngModel)]="user.password" #password="ngModel" [class.is-invalid]="password.invalid&&password.touched" required pattern="^[a-zA-Z0-9]{6,10}$">
             <span *ngIf="password.touched &&password.errors?.['required']" class="error-message" >Password is required.</span>
-            <span *ngIf="password.touched &&password.errors?.['pattern']" class="error-message">Enter a Valid Password.</span>
+            <span *ngIf="password.touched &&password.errors?.['pattern']" class="error-message">Min 6 and Max 10 char. No Special Characters.</span>
             <span *ngIf="password.touched &&!password.errors?.['pattern']&&!password.errors?.['required']" class="success-message">Valid</span>
             <br *ngIf="password.untouched">
         </div>
         <div class="form-group d-flex justify-content-evenly">
             <button type="submit" [disabled]="adduser.invalid" class="btn btn-block add-account"><i class="bi bi-person-fill-add"></i> Add</button>
-            <button type="button" (click)=" clearForm() " class="btn btn-block discard-account"><i class="bi bi-x-circle-fill"></i> Discard</button>
+            <button type="button" (click)=" clearForm() " class="btn btn-block discard-account"><i class="bi bi-x-circle-fill"></i> Clear</button>
         </div>
     </form>
 </div>

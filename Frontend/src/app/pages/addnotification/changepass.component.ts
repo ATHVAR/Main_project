@@ -18,7 +18,7 @@ export class ChangepassComponent implements OnInit {
 
   submit(){
     this.serv.addmessage(this.notification).subscribe((res=>{
-      alert("message posted");
+      alert("message posted on homepage");
       this.notification = {
         notificationmess:''
       };
