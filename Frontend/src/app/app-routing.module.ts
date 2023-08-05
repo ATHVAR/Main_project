@@ -15,6 +15,7 @@ import { CsvComponent } from './pages/csv/csv.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ViewmessageComponent } from './pages/viewmessage/viewmessage.component';
 import { HomedataComponent } from './pages/homedata/homedata.component';
+import { EditbyplacerComponent } from './pages/students/editbyplacer/editbyplacer.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'passchange', component: ChangepassComponent },
   { path: 'csv', component: CsvComponent },
   { path: 'homecomp', component: HomedataComponent },
+  { path: 'editbypo/:id', component: EditbyplacerComponent },
  
   { path: '**', component: ErrorComponent },
 

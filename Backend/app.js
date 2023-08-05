@@ -202,7 +202,7 @@ app.delete('/deleteitem/:_id',(req, res) => {
 });
 
 
-// User/ CRUD operations =>
+// User CRUD operations =>
 // Add
 app.post('/api/users', async (req, res) => {
   try {

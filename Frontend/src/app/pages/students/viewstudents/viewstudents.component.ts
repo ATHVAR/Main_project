@@ -26,6 +26,7 @@ export class ViewstudentsComponent implements OnInit{
 
   edititem(id:any){
     this.router.navigate(['editstuds/'+id]);
+    // this.router.navigate(['editbypo/'+id]);
   }
 
   delitem(id:any){
