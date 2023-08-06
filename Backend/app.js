@@ -4,6 +4,11 @@ const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const csvtojson=require("csvtojson");
+const multer=require('multer');
+const storage=multer.memoryStorage();
+const upload=multer({storage:storage});
+
 const app = express();
 const PORT = 3000;
 
@@ -52,6 +57,42 @@ const Noti=mongoose.model('Notification',notificationSchema);
 
 app.use(bodyParser.json());
 app.use(cors());
+
+
+// Csv file upload
+app.post('/addcsv',upload.single('csvFile'),async(req,res)=>{
+  const csvData=req.file.buffer.toString('utf-8');
+  csvtojson()
+    .fromString(csvData)
+    .then(csvData=>{
+      console.log(csvData);
+      Student.insertMany(csvData)
+        .then(function(){
+          console.log("Data Inserted")
+          res.json({success:'Data Uploaded'});
+      }).catch(function(error){
+          console.log(error);
+          res.status(500).json({error: 'Error Uploading'})
+      });
+    });
+});
+
+
+// app.post('/addcsv',async(req,res)=>{
+//   csvtojson()
+//     .fromFile("posts.csv")
+//     .then(csvData=>{
+//       console.log(csvData);
+//       Student.insertMany(csvData).then(function(){
+//         console.log("Data Inserted")
+//         res.json({success:'success'});
+//       }).catch(function(error){
+//         console.log(error)
+//       });
+//     });
+// });
+
+
 
 // Notification operations
 // Add
@@ -200,6 +241,8 @@ app.delete('/deleteitem/:_id',(req, res) => {
     res.status(500).json({error:'Failed to delete Student'});
   });
 });
+
+
 
 
 // User CRUD operations =>

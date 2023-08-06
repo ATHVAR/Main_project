@@ -1,27 +1,21 @@
-<div class="file-upload centered-div">
-    <p class="heading mt-3">Choose a .CSV File to Upload from your Device</p>
-  <div class="file-select ">
-    <div class="file-select-button" id="fileName">Choose File</div>
-    <div class="file-select-name" id="noFile">No file chosen...</div> 
-    <input type="file" name="chooseFile" id="chooseFile">
+<!-- <div class="csvbox text-center bg-light p-5 m-5 mx-auto col-10 col-md-8 col-lg-6">
+  <h2>CSV File Upload</h2><br>
+  <div class="inputbox bg-success">
+    <input type="file" (change)="onFileChange($event)">
+    <button (click)="uploadFile()">Upload</button>
+  </div>
+  <div *ngIf="message">{{ message }}</div>
+</div> -->
+
+<div class="csvbox1 bg-light p-5 m-5 mx-auto col-10 col-md-8 col-lg-6">
+  <div class="custom-file csvbox2 p-4">
+    <input type="file" accept=".csv" class="custom-file-input" id="inputGroupFile01" (change)="onFileChange($event)">
+    <label class="custom-file-label" for="inputGroupFile01"></label>
+  </div><br>
+  <div class="d-flex justify-content-evenly">
+    <button class="button-57" role="button" (click)="uploadFile()"><span class="text">Upload</span><span><i class="bi bi-cloud-upload fa-2x "></i></span></button>
+  </div><br>
+  <div class="d-flex justify-content-evenly">
+    <span *ngIf="message">Uploading : {{ message }}</span>
   </div>
 </div>
-
-<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-
-
-<!-- JS file -->
-
-<!-- $('#chooseFile').bind('change', function () {
-  var filename = $("#chooseFile").val();
-  if (/^\s*$/.test(filename)) {
-    $(".file-upload").removeClass('active');
-    $("#noFile").text("No file chosen..."); 
-  }
-  else {
-    $(".file-upload").addClass('active');
-    $("#noFile").text(filename.replace("C:\\fakepath\\", -->
-
-<!-- Process -->
-
-<!-- https://code.tutsplus.com/how-to-upload-and-download-csv-files-with-angularjs--cms-31489t -->

@@ -34,6 +34,8 @@ const routes: Routes = [
   { path: 'csv', component: CsvComponent },
   { path: 'homecomp', component: HomedataComponent },
   { path: 'editbypo/:id', component: EditbyplacerComponent },
+
+  
  
   { path: '**', component: ErrorComponent },
 
