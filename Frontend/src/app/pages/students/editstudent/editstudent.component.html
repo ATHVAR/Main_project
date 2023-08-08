@@ -1,7 +1,7 @@
 <!-- Reactive Form -->
 <div class="registration-form">
     <form class="form1 bg-light" [formGroup]="editform" (ngSubmit)="onsubmit()">
-        <div class="text-center headingdiv bg-primary-subtle fs-3 font-monospace">
+        <div class="text-center headingdiv bg-primary-subtle fs-3 font-monospace mt-5">
             <span>Edit Student Details</span>
         </div>
         <br>
@@ -59,10 +59,11 @@
                 <option>Not Interested</option>
               </select>
         </div>
-        <br>
+        <br><br>
         <div class="form-group d-flex justify-content-evenly">
-            <button type="submit" class="btn btn-block update-account"><i class="bi bi-person-fill-up"></i> Update</button>
-            <button routerLink="/home" class="btn btn-block cancel-account"><i class="bi bi-x-circle-fill"></i> Cancel</button>
+            <button type="submit" class="button-62 btn btn-block"><i class="bi bi-person-fill-up"></i> Update</button>
+            <button routerLink="/home" class="button-63  btn-block"><i class="bi bi-x-circle-fill"></i> Cancel</button>
         </div>
+        <br>
     </form>
 </div>

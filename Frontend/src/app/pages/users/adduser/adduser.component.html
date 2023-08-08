@@ -36,9 +36,10 @@
             <span *ngIf="password.touched &&!password.errors?.['pattern']&&!password.errors?.['required']" class="success-message">Valid</span>
             <br *ngIf="password.untouched">
         </div>
+        <br>
         <div class="form-group d-flex justify-content-evenly">
-            <button type="submit" [disabled]="adduser.invalid" class="btn btn-block add-account"><i class="bi bi-person-fill-add"></i> Add</button>
-            <button type="button" (click)=" clearForm() " class="btn btn-block discard-account"><i class="bi bi-x-circle-fill"></i> Clear</button>
+            <button type="submit" [disabled]="adduser.invalid" class="button-62 btn btn-block "><i class="bi bi-person-fill-add"></i> Add</button>
+            <button type="button" (click)=" clearForm() " class="button-63 btn btn-block"><i class="bi bi-x-circle-fill"></i> Clear</button>
         </div>
     </form>
 </div>

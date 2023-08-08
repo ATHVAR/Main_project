@@ -28,20 +28,18 @@ const routes: Routes = [
 
   { path: 'viewstuds', component: ViewstudentsComponent },
   { path: 'addstuds', component: AddstudentsComponent },
-  { path: 'editstuds/:id', component: EditstudentComponent }, // Add ':id' parameter for student ID
+  { path: 'editbypo/:id', component: EditbyplacerComponent },
+  { path: 'editstuds/:id', component: EditstudentComponent },
  
   { path: 'passchange', component: ChangepassComponent },
   { path: 'csv', component: CsvComponent },
   { path: 'homecomp', component: HomedataComponent },
-  { path: 'editbypo/:id', component: EditbyplacerComponent },
 
-  
- 
+  { path: 'footer',component:FooterComponent},
+  { path: 'viewmess',component:ViewmessageComponent},
+
   { path: '**', component: ErrorComponent },
 
-  
-
-  // Other routes for your application
 ];
 
 @NgModule({

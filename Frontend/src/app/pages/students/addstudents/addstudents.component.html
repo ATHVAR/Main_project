@@ -1,7 +1,7 @@
 <!-- Template Driven Form -->
 <div class="registration-form">
     <form class="form1 bg-light" #addstud="ngForm" (ngSubmit)="submit()">
-        <div class="text-center headingdiv bg-primary-subtle fs-3 font-monospace">
+        <div class="text-center headingdiv bg-primary-subtle fs-3 font-monospace mt-5">
             <span>Add Student Details</span>
         </div>
         <br>
@@ -70,10 +70,11 @@
                 <option>Not Interested</option>
               </select>
         </div>
-        <br>
+        <br><br>
         <div class="form-group d-flex justify-content-evenly">
-            <button type="submit" [disabled]="addstud.invalid" class="btn btn-block add-account"><i class="bi bi-person-fill-add"></i> Add</button>
-            <button type="button" (click)="cancel()" class="btn btn-block discard-account" ><i class="bi bi-x-circle-fill"></i> Clear</button>
+            <button type="submit" [disabled]="addstud.invalid" class="button-62 btn btn-block "><i class="bi bi-person-fill-add"></i> Add</button>
+            <button type="button" (click)="cancel()" class="button-63 btn btn-block " ><i class="bi bi-x-circle-fill"></i> Clear</button>
         </div>
+        <br>
     </form>
 </div>
