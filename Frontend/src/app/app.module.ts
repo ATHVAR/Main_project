@@ -14,7 +14,6 @@ import { AdduserComponent } from './pages/users/adduser/adduser.component';
 import { AddstudentsComponent } from './pages/students/addstudents/addstudents.component';
 import { ViewstudentsComponent } from './pages/students/viewstudents/viewstudents.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { ChangepassComponent } from './pages/addnotification/changepass.component';
 import { EditUserComponent } from './pages/users/edituser/edituser.component';
 import { EditstudentComponent } from './pages/students/editstudent/editstudent.component';
 import { CsvComponent } from './pages/csv/csv.component';
@@ -24,9 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserdataService } from './shared/userdata.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { NotificationService } from './shared/notification.service';
-import { ViewmessageComponent } from './pages/viewmessage/viewmessage.component';
 import { HomedataComponent } from './pages/homedata/homedata.component';
 import { EditbyplacerComponent } from './pages/students/editbyplacer/editbyplacer.component';
+import { AddnotificationComponent } from './pages/addnotification/addnotification.component';
 
 
 @NgModule({
@@ -40,14 +39,13 @@ import { EditbyplacerComponent } from './pages/students/editbyplacer/editbyplace
     AddstudentsComponent,
     ViewstudentsComponent,
     ErrorComponent,
-    ChangepassComponent,
     EditUserComponent,
     EditstudentComponent,
     CsvComponent,
     FooterComponent,
-    ViewmessageComponent,
     HomedataComponent,
-    EditbyplacerComponent
+    EditbyplacerComponent,
+    AddnotificationComponent
   ],
   imports: [
     BrowserModule,

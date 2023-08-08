@@ -8,14 +8,13 @@ import { AdduserComponent } from './pages/users/adduser/adduser.component';
 import { ViewstudentsComponent } from './pages/students/viewstudents/viewstudents.component';
 import { AddstudentsComponent } from './pages/students/addstudents/addstudents.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { ChangepassComponent } from './pages/addnotification/changepass.component';
 import { EditUserComponent } from './pages/users/edituser/edituser.component';
 import { EditstudentComponent } from './pages/students/editstudent/editstudent.component';
 import { CsvComponent } from './pages/csv/csv.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ViewmessageComponent } from './pages/viewmessage/viewmessage.component';
 import { HomedataComponent } from './pages/homedata/homedata.component';
 import { EditbyplacerComponent } from './pages/students/editbyplacer/editbyplacer.component';
+import { AddnotificationComponent } from './pages/addnotification/addnotification.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -31,12 +30,12 @@ const routes: Routes = [
   { path: 'editbypo/:id', component: EditbyplacerComponent },
   { path: 'editstuds/:id', component: EditstudentComponent },
  
-  { path: 'passchange', component: ChangepassComponent },
   { path: 'csv', component: CsvComponent },
   { path: 'homecomp', component: HomedataComponent },
 
   { path: 'footer',component:FooterComponent},
-  { path: 'viewmess',component:ViewmessageComponent},
+
+  { path: 'passchange',component:AddnotificationComponent},
 
   { path: '**', component: ErrorComponent },
 

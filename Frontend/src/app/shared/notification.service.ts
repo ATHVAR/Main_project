@@ -5,6 +5,7 @@ import { HttpClient,HttpClientModule,HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class NotificationService {
+
   notification:any;
   constructor(public http:HttpClient) { }
 
@@ -19,4 +20,5 @@ export class NotificationService {
   viewmessage(){
     return this.http.get('http://localhost:3000/viewmess');
   }
+
 }
