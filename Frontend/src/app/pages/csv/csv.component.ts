@@ -24,11 +24,12 @@ export class CsvComponent {
     try{
       const response = await this.fileuploadserv.upload(this.selectedFile);
       this.message = response.success;
+      alert('File Uploaded')
+      this.router.navigate(['home/viewstuds'])
+
     } catch (error) {
       this.message = 'Unsuccessful';
     }
-    this.router.navigate(['home/viewstuds'])
-
   }
 
 }

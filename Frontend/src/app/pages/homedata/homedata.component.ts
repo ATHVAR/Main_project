@@ -15,5 +15,4 @@ export class HomedataComponent implements OnInit {
       console.log(this.notification)
     }))
   }
-
 }

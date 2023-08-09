@@ -25,8 +25,7 @@ export class AdduserComponent implements OnInit {
     this.userDataService.addUser(this.user).subscribe(
       (response) => {
         window.alert('User added successfully!');
-        this.router.navigate(['home/viewuser'])
-        
+        this.router.navigate(['home/viewuser']) 
       },
       (error) => {
         window.alert('Error adding user. Please try again.');
@@ -34,8 +33,6 @@ export class AdduserComponent implements OnInit {
       }
     );
   }
-
-
 
   clearForm(): void {
     this.user = {

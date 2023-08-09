@@ -19,7 +19,6 @@ mongoose.connect('mongodb+srv://officialsabarinarayan:9447103050@cluster0.buyzcu
 })
 .then(() => {
   console.log('Connected to MongoDB Atlas');
-    // Once connected, call the function to update passwords
     })
 
 .catch(err => console.error('Error connecting to MongoDB Atlas:', err));
@@ -31,7 +30,6 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   role: { type: String, required: true },
 });
-
 const User = mongoose.model('User', userSchema);
 
 // Student Schema
@@ -44,20 +42,16 @@ const studentSchema=new mongoose.Schema({
   status: String,
   placement: String,
 })
-
 const Student=mongoose.model('Studentdetail',studentSchema);
 
 // Message Schema
 const notificationSchema=new mongoose.Schema({
   notificationmess:String
 })
-
 const Noti=mongoose.model('Notification',notificationSchema);
-
 
 app.use(bodyParser.json());
 app.use(cors());
-
 
 // Csv file upload
 app.post('/addcsv',upload.single('csvFile'),async(req,res)=>{
@@ -76,23 +70,6 @@ app.post('/addcsv',upload.single('csvFile'),async(req,res)=>{
       });
     });
 });
-
-
-// app.post('/addcsv',async(req,res)=>{
-//   csvtojson()
-//     .fromFile("posts.csv")
-//     .then(csvData=>{
-//       console.log(csvData);
-//       Student.insertMany(csvData).then(function(){
-//         console.log("Data Inserted")
-//         res.json({success:'success'});
-//       }).catch(function(error){
-//         console.log(error)
-//       });
-//     });
-// });
-
-
 
 // Notification operations
 // Add
@@ -139,22 +116,16 @@ app.delete('/deletemess/:_id',(req, res) => {
 // Login route
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
-
-  
   User.findOne({ email })
     .then(user => {
       if (!user) {
-        // User not found
         res.status(401).json({ message: 'Invalid credentials' });
       } else {
-        // Compare the provided password with the stored hashed password
         bcrypt.compare(password, user.password)
           .then(isValid => {
             if (isValid) {
-              // Password is correct, login successful
               res.json({ message: 'Login successful' });
             } else {
-              // Password is incorrect
               res.status(401).json({ message: 'Invalid credentials' });
             }
           })
@@ -242,9 +213,6 @@ app.delete('/deleteitem/:_id',(req, res) => {
   });
 });
 
-
-
-
 // User CRUD operations =>
 // Add
 app.post('/api/users', async (req, res) => {
@@ -287,16 +255,12 @@ app.get('/api/users/:id', async (req, res) => {
 app.put('/api/users/:id', async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
-
-    // Hash the new password before updating
     const hashedPassword = await bcrypt.hash(password, 10);
-
     const updatedUser = await User.findByIdAndUpdate(
       req.params.id,
       { name , email, password: hashedPassword, role },
-      { new: true } // Return the updated user after the update
+      { new: true }
     );
-
     res.status(200).json({ message: 'User updated successfully', user: updatedUser });
   } catch (error) {
     res.status(500).json({ message: 'Error updating user', error: error.message });

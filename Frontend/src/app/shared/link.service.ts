@@ -6,11 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginService {
-  private apiUrl = 'http://localhost:3000/login'; // Replace with your backend API URL
+  private apiUrl = 'http://localhost:3000/login';
 
   constructor(private http: HttpClient) {}
 
-  // Method to handle the login request
   login(email: string, password: string): Observable<any> {
     const loginData = { email, password };
     return this.http.post<any>(this.apiUrl, loginData);

@@ -1,4 +1,4 @@
-import { TmplAstRecursiveVisitor } from '@angular/compiler';
+// import { TmplAstRecursiveVisitor } from '@angular/compiler';
 import { Component, OnInit , ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit{
 
-  isSidebarActive = false; // Add this property to control sidebar visibility
+  // sidebar visibility
+  isSidebarActive = false;
   @ViewChild('sidebar')
   sidebar!: ElementRef;
   dropdownStates: { [key: string]: boolean } = {}
@@ -32,8 +33,9 @@ export class HomeComponent implements OnInit{
     this.router.navigate(['']);
   }
 
+  // Toggle the sidebar visibility
   toggleSidebar(): void {
-    this.isSidebarActive = !this.isSidebarActive; // Toggle the sidebar visibility
+    this.isSidebarActive = !this.isSidebarActive;
     if (this.isSidebarActive) {
       this.renderer.addClass(this.sidebar.nativeElement, 'active');
     } else {
@@ -42,12 +44,11 @@ export class HomeComponent implements OnInit{
     this.dropdownStates={};
   }
 
-  
+  // Submenu toggling
   toggleDropdown(submenuId: string): void {
     const submenu = document.getElementById(submenuId);
     if (submenu) {
       submenu.classList.toggle('show');
     }
   }
-
 }

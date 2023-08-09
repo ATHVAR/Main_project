@@ -23,7 +23,6 @@ export class EditUserComponent implements OnInit {
         },
         (error) => {
           console.error(error);
-          // Handle error if necessary
         }
       );
     });
@@ -31,7 +30,6 @@ export class EditUserComponent implements OnInit {
 
   updateUser(): void {
     if (this.user.newPassword) {
-      // Handle password update
       this.user.password = this.user.newPassword;
     } else {
       // Remove password property if not updating password
@@ -45,15 +43,11 @@ export class EditUserComponent implements OnInit {
         console.log('Update successful:', response.message);
         alert('Edited User')
         this.router.navigate(['home/viewuser'])
-        // Handle success or navigate to another page
       },
       (error) => {
         console.error('Update error:', error);
-        // Handle error if necessary
       }
     );
   }
-  
-  
   
 }

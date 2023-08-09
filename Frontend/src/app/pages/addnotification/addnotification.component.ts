@@ -26,16 +26,17 @@ export class AddnotificationComponent implements OnInit {
       this.notification = {
         notificationmess: ''
       };
-      this.fetchmessage(); // Fetch messages again after posting a new message
+      this.fetchmessage();
     });
   }
 
   delmess(id: any) {
     this.serv.delmessage(id).subscribe(data => console.log(data));
     alert('Message deleted');
-    this.fetchmessage(); // Fetch messages again after deleting a message
+    this.fetchmessage();
   }
 
+  // Get Messages
   fetchmessage(): void {
     this.serv.viewmessage().subscribe(data => {
       this.notifications = data;
@@ -43,8 +44,4 @@ export class AddnotificationComponent implements OnInit {
     });
   }
 
-  
-
-
 }
-

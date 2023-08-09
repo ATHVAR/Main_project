@@ -42,9 +42,7 @@ a:focus {
     margin: 40px 0;
 }
 
-/* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
+/* Side Bar Styling */
 
 .wrapper {
     display: flex;
@@ -139,9 +137,7 @@ a.article:hover {
     color: #fff !important;
 }
 
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
+/* Content Styling */
 
 #content {
     width: 100%;
@@ -168,10 +164,10 @@ a.article:hover {
 
 
 
-/* Logout button */
+/* Logout and Home button */
 .button-89 {
-  --b: 3px;   /* border thickness */
-  --s: .45em; /* size of the corner */
+  --b: 3px; 
+  --s: .45em; 
   --color: #ebedf1;
   
   padding: calc(.5em + var(--s)) calc(.9em + var(--s));

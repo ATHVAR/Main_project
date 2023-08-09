@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserdataService {
-  private apiUrl = 'http://localhost:3000/api/users'; // Update the URL to your backend API endpoint
+  private apiUrl = 'http://localhost:3000/api/users';
 
   constructor(private http: HttpClient) { }
 
@@ -30,4 +30,3 @@ export class UserdataService {
     return this.http.delete<any>(`${this.apiUrl}/${userId}`);
   }
 }
-

@@ -1,6 +1,5 @@
-.page-wrapper
-{
-      position: absolute;
+.page-wrapper{
+    position: absolute;
     bottom: 0;
     width: 100%;
     z-index: 11111;
@@ -19,8 +18,7 @@ footer p, footer strong, footer b, footer {
     background-position: center;
     padding: 0 0 20px;
     font-family: rubik;
-  padding-top:30px;
-  
+    padding-top:30px;
 }
 
 .footer-top, .footer-bottom {
@@ -33,13 +31,14 @@ footer p, footer strong, footer b, footer {
     background-color: #181828 !important;
     color: #b0b0b0;
     font-family: rubik;
-color: #99a9b5;
+    color: #99a9b5;
     padding-top: 15px;
 }
 
 .footer-site-info {
     font-size: 92.86%;
 }
+
 #footer-navigation, #footer-navigation li a:hover, .custom-footer, .custom-footer li a:hover {
     color: white;
 }
@@ -52,14 +51,17 @@ color: #99a9b5;
 .footer-bottom ul {
     margin: 0;
 }
+
 .inline-inside {
     font-size: 0;
     line-height: 0;
 }
+
 .clearfix:after, .clearfix:before {
     content: "";
     display: table;
 }
+
 #footer-menu li {
     display: inline-block;
     padding: 0 21px;
@@ -76,6 +78,7 @@ color: #99a9b5;
     color: #99a9b5;
     padding-top: 15px;
 }
+
 #footer-menu li+li:before {
     content: '';
     width: 0;
@@ -145,18 +148,12 @@ a.socials-item {
     color: #4e64b5;
 }
 
-.twitter {
-    color: #00aced;
-}
 .instagram {
     color: #9a8f62;
 }
+
 .youtube {
     color: #c82929;
-}
-
-.telegram {
-    color: #2ca5e0;
 }
 
 a.socials-item:hover {
@@ -376,7 +373,6 @@ footer .widget ul {
     bottom: -70px !important;
 }
 
-.footer-site-info
-{
+.footer-site-info{
   padding-top: 10px;
 }

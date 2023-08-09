@@ -22,22 +22,17 @@ export class ViewuserComponent implements OnInit {
       },
       (error) => {
         console.error(error);
-        // Handle error if necessary
       }
     );
   }
   deleteUser(userId: string): void {
-    this.userDataService.deleteUser(userId).subscribe(
-      () => {
-        // Reload the user list after successful deletion
+    this.userDataService.deleteUser(userId).subscribe(() => {
         this.fetchUsers();
         alert('User Deleted');
       },
       (error) => {
         console.error(error);
-        // Handle error if necessary
       }
     );
   }
 }
-

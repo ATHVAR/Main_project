@@ -1,20 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './components/sidenav/home.component';
 import { NavbarComponent } from './pages/landingpage/navbar.component';
+
 import { ViewuserComponent } from './pages/users/viewuser/viewuser.component';
 import { AdduserComponent } from './pages/users/adduser/adduser.component';
+import { EditUserComponent } from './pages/users/edituser/edituser.component';
+
 import { ViewstudentsComponent } from './pages/students/viewstudents/viewstudents.component';
 import { AddstudentsComponent } from './pages/students/addstudents/addstudents.component';
-import { ErrorComponent } from './pages/error/error.component';
-import { EditUserComponent } from './pages/users/edituser/edituser.component';
 import { EditstudentComponent } from './pages/students/editstudent/editstudent.component';
-import { CsvComponent } from './pages/csv/csv.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HomedataComponent } from './pages/homedata/homedata.component';
 import { EditbyplacerComponent } from './pages/students/editbyplacer/editbyplacer.component';
+
 import { AddnotificationComponent } from './pages/addnotification/addnotification.component';
+import { HomedataComponent } from './pages/homedata/homedata.component';
+import { CsvComponent } from './pages/csv/csv.component';
+
+import { FooterComponent } from './components/footer/footer.component';
+import { ErrorComponent } from './pages/error/error.component';
+
 
 const routes: Routes = [
 

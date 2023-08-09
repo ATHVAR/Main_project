@@ -20,6 +20,7 @@ export class AddstudentsComponent implements OnInit{
     status:'',
     placement:''
   }
+
   constructor(public serv:StudentdataService,private router:Router){}
   ngOnInit(): void {
     
