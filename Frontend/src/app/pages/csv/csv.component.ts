@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CsvdataService } from 'src/app/shared/csvdata.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class CsvComponent {
   selectedFile:File|null=null;
   message:string|null=null;
 
-  constructor(private fileuploadserv:CsvdataService) {}
+  constructor(private fileuploadserv:CsvdataService, private router:Router) {}
 
   onFileChange(event:any):void{
     this.selectedFile=event.target.files[0];
@@ -26,6 +27,8 @@ export class CsvComponent {
     } catch (error) {
       this.message = 'Unsuccessful';
     }
+    this.router.navigate(['home/viewstuds'])
+
   }
 
 }

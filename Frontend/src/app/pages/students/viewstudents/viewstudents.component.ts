@@ -11,10 +11,7 @@ export class ViewstudentsComponent implements OnInit{
   studdetail:any;
   constructor(public serv:StudentdataService, public router:Router){}
   ngOnInit(): void {
-    this.serv.getstudentdata().subscribe((data=>{
-      this.studdetail=data;
-      console.log(this.studdetail)
-    }))
+    this.fetchstuds();
   }
 
   fetchstuds():void{
@@ -25,8 +22,10 @@ export class ViewstudentsComponent implements OnInit{
   }
 
   edititem(id:any){
-    this.router.navigate(['editstuds/'+id]);
-    // this.router.navigate(['editbypo/'+id]);
+    this.router.navigate(['home/editstuds/'+id]);
+
+    // router when placement officer clicks edit
+    // this.router.navigate(['home/editbypo/'+id]);
   }
 
   delitem(id:any){

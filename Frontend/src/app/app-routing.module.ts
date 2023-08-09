@@ -17,26 +17,26 @@ import { EditbyplacerComponent } from './pages/students/editbyplacer/editbyplace
 import { AddnotificationComponent } from './pages/addnotification/addnotification.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+
   { path: '', component: NavbarComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
 
-  { path: 'viewuser', component: ViewuserComponent },
-  { path: 'adduser', component: AdduserComponent },
-  { path: 'edituser/:id', component: EditUserComponent },
-
-  { path: 'viewstuds', component: ViewstudentsComponent },
-  { path: 'addstuds', component: AddstudentsComponent },
-  { path: 'editbypo/:id', component: EditbyplacerComponent },
-  { path: 'editstuds/:id', component: EditstudentComponent },
- 
-  { path: 'csv', component: CsvComponent },
-  { path: 'homecomp', component: HomedataComponent },
+  { path: 'home', component: HomeComponent, 
+  children:[
+    { path: '', redirectTo: 'homecomp', pathMatch: 'full' },
+    { path: 'homecomp', component: HomedataComponent },
+    { path: 'viewuser', component: ViewuserComponent },
+    { path: 'adduser', component: AdduserComponent },
+    { path: 'edituser/:id', component: EditUserComponent },
+    { path: 'viewstuds', component: ViewstudentsComponent },
+    { path: 'addstuds', component: AddstudentsComponent },
+    { path: 'editbypo/:id', component: EditbyplacerComponent },
+    { path: 'editstuds/:id', component: EditstudentComponent }, 
+    { path: 'csv', component: CsvComponent },
+    { path: 'passchange',component:AddnotificationComponent},
+  ] },
 
   { path: 'footer',component:FooterComponent},
-
-  { path: 'passchange',component:AddnotificationComponent},
-
   { path: '**', component: ErrorComponent },
 
 ];

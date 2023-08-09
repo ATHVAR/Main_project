@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserdataService } from 'src/app/shared/userdata.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class AdduserComponent implements OnInit {
     password:''
   }
 
-  constructor(private userDataService: UserdataService) { }
+  constructor(private userDataService: UserdataService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -24,7 +25,7 @@ export class AdduserComponent implements OnInit {
     this.userDataService.addUser(this.user).subscribe(
       (response) => {
         window.alert('User added successfully!');
-        this.clearForm();
+        this.router.navigate(['home/viewuser'])
         
       },
       (error) => {

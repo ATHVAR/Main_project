@@ -44,7 +44,7 @@ export class EditbyplacerComponent {
     console.log(this.editform.value)
     this.api.editstud(this.editform.value,this.id).subscribe(data=>{
       console.log(data)
-      this.router.navigate(['home'])
+      this.router.navigate(['home/viewstuds'])
       alert("Detail updated")
     })
   }

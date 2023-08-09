@@ -13,15 +13,7 @@ export class ViewuserComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchUsers();
-    this.userDataService.getUsers().subscribe(
-      (users) => {
-        this.users = users;
-      },
-      (error) => {
-        console.error(error);
-        // Handle error if necessary
-      }
-    );
+
   }
   fetchUsers(): void {
     this.userDataService.getUsers().subscribe(

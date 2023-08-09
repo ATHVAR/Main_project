@@ -44,8 +44,8 @@ export class EditstudentComponent {
     console.log(this.editform.value)
     this.api.editstud(this.editform.value,this.id).subscribe(data=>{
       console.log(data)
-      this.router.navigate(['home'])
       alert("Detail updated")
+      this.router.navigate(['home/viewstuds'])
     })
   }
 }

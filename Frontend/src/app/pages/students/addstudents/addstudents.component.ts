@@ -27,7 +27,7 @@ export class AddstudentsComponent implements OnInit{
   submit(){
     this.serv.addstudent(this.studdetail).subscribe((res=>{
       alert("Student Added")
-      this.cancel();
+      this.router.navigate(['home/viewstuds']);
     }))
     
   }

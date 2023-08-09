@@ -44,7 +44,7 @@ export class EditUserComponent implements OnInit {
       (response) => {
         console.log('Update successful:', response.message);
         alert('Edited User')
-        this.router.navigate(['home'])
+        this.router.navigate(['home/viewuser'])
         // Handle success or navigate to another page
       },
       (error) => {
