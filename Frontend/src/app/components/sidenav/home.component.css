@@ -1,7 +1,7 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
     font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+    background: white ;
 }
 
 p {
@@ -22,9 +22,9 @@ a:focus {
 
 .navbar {
     padding: 15px 10px;
-    background: #fff;
+    background-color: #3498db !important;
     border: none;
-    border-radius: 0;
+    border-radius: 10px;
     margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -55,7 +55,7 @@ a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #00c3ff;
+    background:#3498db;
     color: #fff;
     transition: all 0.3s;
 }
@@ -66,7 +66,7 @@ a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background:  #00c3ff ;
+    background: #3498db ;
 }
 
 #sidebar ul.components {
@@ -109,9 +109,11 @@ a[data-toggle="collapse"] {
 }
 
 ul ul a {
-    font-size: 0.9em !important;
+    /* font-size: 0.9em !important; */
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background: rgba(255, 255, 255, 0.755);
+    color: #00c3ff;
+    font-weight: 600;
 }
 
 ul.CTAs {
@@ -126,16 +128,9 @@ ul.CTAs a {
     margin-bottom: 5px;
 }
 
-a.download {
-    background: #fff;
-    color: #7386D5;
-}
 
-a.article,
-a.article:hover {
-    background: #6d7fcc !important;
-    color: #fff !important;
-}
+
+
 
 /* Content Styling */
 
@@ -198,4 +193,10 @@ a.article:hover {
 .button-89:active {
   background: var(--color);
   color: #fff;
+}
+#sidebarCollapse{
+    background-color: white;
+    font-weight: 700;
+    color: #3498db;
+    font-size: larger;
 }

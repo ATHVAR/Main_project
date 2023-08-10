@@ -1,8 +1,8 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-/* body{
-    position: relative;
-} */
+body{
+    background: linear-gradient(to bottom, #87CEFA, #ffffff);
+}
 
 .page-wrapper{
     position: relative;
