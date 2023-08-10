@@ -24,26 +24,26 @@ import { ErrorComponent } from './pages/error/error.component';
 
 const routes: Routes = [
 
-  { path: '', component: NavbarComponent },
-  { path: 'login', component: LoginComponent },
+  { path: '', component: NavbarComponent }, //all
+  { path: 'login', component: LoginComponent }, //all
 
-  { path: 'home', component: HomeComponent, 
+  { path: 'home', component: HomeComponent, //all
   children:[
-    { path: '', redirectTo: 'homecomp', pathMatch: 'full' },
-    { path: 'homecomp', component: HomedataComponent },
-    { path: 'viewuser', component: ViewuserComponent },
-    { path: 'adduser', component: AdduserComponent },
-    { path: 'edituser/:id', component: EditUserComponent },
-    { path: 'viewstuds', component: ViewstudentsComponent },
-    { path: 'addstuds', component: AddstudentsComponent },
-    { path: 'editbypo/:id', component: EditbyplacerComponent },
-    { path: 'editstuds/:id', component: EditstudentComponent }, 
-    { path: 'csv', component: CsvComponent },
-    { path: 'passchange',component:AddnotificationComponent},
+    { path: '', redirectTo: 'homecomp', pathMatch: 'full' }, //all
+    { path: 'homecomp', component: HomedataComponent }, //all
+    { path: 'viewuser', component: ViewuserComponent }, //admin
+    { path: 'adduser', component: AdduserComponent }, //admin
+    { path: 'edituser/:id', component: EditUserComponent }, //admin
+    { path: 'viewstuds', component: ViewstudentsComponent }, //admin+head+placer
+    { path: 'addstuds', component: AddstudentsComponent }, //admin+head
+    { path: 'editbypo/:id', component: EditbyplacerComponent }, //placer
+    { path: 'editstuds/:id', component: EditstudentComponent }, //admin+head
+    { path: 'csv', component: CsvComponent }, //admin+head
+    { path: 'passchange',component:AddnotificationComponent}, //admin
   ] },
 
-  { path: 'footer',component:FooterComponent},
-  { path: '**', component: ErrorComponent },
+  { path: 'footer',component:FooterComponent}, //all
+  { path: '**', component: ErrorComponent }, //all
 
 ];
 
