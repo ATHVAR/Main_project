@@ -13,6 +13,10 @@ ul{
     padding: 10px;
 }
 
+.listing{
+  background-color: #cccbcb;
+}
+
 /* Post button */
 .button-86 {
   all: unset;

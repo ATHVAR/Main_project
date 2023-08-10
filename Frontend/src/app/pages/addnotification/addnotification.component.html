@@ -13,8 +13,8 @@
     Previous Notifications
 </p>
 <div class="oldnotimess">
-    <ul class="list-group" >
-        <li class="list-group-item" *ngFor="let item of notifications">
+    <ul class="list-group listing" >
+        <li class="list-group-item list-group-item-action" *ngFor="let item of notifications">
             <i class="bi bi-bell"> {{item.notificationmess}} </i>
             <button class="button-48 float-end" (click)="delmess(item._id)" role="button"><span class="text"><i class="bi bi-calendar2-x"></i> Delete</span></button>
         </li>
