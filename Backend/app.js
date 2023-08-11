@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+const jwt = require ('jsonwebtoken');
 const csvtojson=require("csvtojson");
 const multer=require('multer');
 const storage=multer.memoryStorage();
@@ -124,7 +124,8 @@ app.post('/login', (req, res) => {
         bcrypt.compare(password, user.password)
           .then(isValid => {
             if (isValid) {
-              res.json({ message: 'Login successful' });
+              const token = jwt.sign({ userId: user._id, role: user.role }, '12345', { expiresIn: '1h' });
+              res.json({ message: 'Login successful', token });
             } else {
               res.status(401).json({ message: 'Invalid credentials' });
             }

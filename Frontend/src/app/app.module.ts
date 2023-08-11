@@ -29,6 +29,7 @@ import { LoginFormVisibilityService } from './shared/login-form-visiblity.servic
 import { StudentdataService } from './shared/studentdata.service';
 import { UserdataService } from './shared/userdata.service';
 import { NotificationService } from './shared/notification.service';
+import { RoleGuard } from './my-auth.guard';
 
 
 @NgModule({
@@ -59,7 +60,7 @@ import { NotificationService } from './shared/notification.service';
     CommonModule,
     BrowserAnimationsModule
   ],
-  providers: [LoginService,LoginFormVisibilityService,StudentdataService, UserdataService,NotificationService],
+  providers: [LoginService,LoginFormVisibilityService,StudentdataService, UserdataService,NotificationService,RoleGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

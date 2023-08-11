@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StudentdataService } from 'src/app/shared/studentdata.service';
+import { LoginService } from 'src/app/shared/link.service';
 
 @Component({
   selector: 'app-viewstudents',
@@ -12,6 +13,7 @@ export class ViewstudentsComponent implements OnInit{
   constructor(public serv:StudentdataService, public router:Router){}
   ngOnInit(): void {
     this.fetchstuds();
+    
   }
 
   fetchstuds():void{

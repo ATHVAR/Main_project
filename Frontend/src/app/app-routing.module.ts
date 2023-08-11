@@ -20,6 +20,8 @@ import { CsvComponent } from './pages/csv/csv.component';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { RoleGuard } from './my-auth.guard';
+
 
 
 const routes: Routes = [
@@ -28,18 +30,45 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent }, //all
 
   { path: 'home', component: HomeComponent, //all
-  children:[
+  children :[
     { path: '', redirectTo: 'homecomp', pathMatch: 'full' }, //all
     { path: 'homecomp', component: HomedataComponent }, //all
-    { path: 'viewuser', component: ViewuserComponent }, //admin
-    { path: 'adduser', component: AdduserComponent }, //admin
-    { path: 'edituser/:id', component: EditUserComponent }, //admin
-    { path: 'viewstuds', component: ViewstudentsComponent }, //admin+head+placer
-    { path: 'addstuds', component: AddstudentsComponent }, //admin+head
-    { path: 'editbypo/:id', component: EditbyplacerComponent }, //placer
-    { path: 'editstuds/:id', component: EditstudentComponent }, //admin+head
-    { path: 'csv', component: CsvComponent }, //admin+head
-    { path: 'passchange',component:AddnotificationComponent}, //admin
+    { path: 'viewuser', component: ViewuserComponent , canActivate: [RoleGuard], data:{
+      roles: 'Admin'
+    } 
+     }, //admin
+    { path: 'adduser', component: AdduserComponent , canActivate: [RoleGuard], data:{
+      roles: 'Admin'
+    } 
+     }, //admin
+    { path: 'edituser/:id', component: EditUserComponent , canActivate: [RoleGuard], data:{
+      roles: 'Admin'
+    } 
+     }, //admin
+    {
+      path: 'viewstuds',
+      component: ViewstudentsComponent,
+      canActivate: [RoleGuard],
+      data: {
+        roles: ['Admin', 'Training Head', 'Placement Officer']
+      }
+    }, //admin+head+placer
+    { path: 'addstuds', component: AddstudentsComponent, canActivate: [RoleGuard], data:{
+      roles: [ 'Admin', 'Training Head']
+    } }, //admin+head
+    { path: 'editbypo/:id', component: EditbyplacerComponent , canActivate : [RoleGuard], data: {
+      roles: ['Placement Officer']
+    } }, //placer
+    { path: 'editstuds/:id', component: EditstudentComponent , canActivate : [RoleGuard] , data : {
+      roles: ['Admin' , 'Training Head']
+    } 
+     }, //admin+head
+    { path: 'csv', component: CsvComponent , canActivate: [RoleGuard], data :{
+      roles: ['Admin' , 'Training Head']
+    } }, //admin+head
+    { path: 'passchange',component:AddnotificationComponent , canActivate:[RoleGuard], data : {
+      roles: ['Admin']
+    }}, //admin
   ] },
 
   { path: 'footer',component:FooterComponent}, //all
