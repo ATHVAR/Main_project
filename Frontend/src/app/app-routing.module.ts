@@ -34,7 +34,7 @@ const routes: Routes = [
     { path: 'viewuser', component: ViewuserComponent , canActivate: [RoleGuard], data:{roles: 'Admin'} }, //admin
     { path: 'adduser', component: AdduserComponent , canActivate: [RoleGuard], data:{roles: 'Admin'} }, //admin
     { path: 'edituser/:id', component: EditUserComponent , canActivate: [RoleGuard], data:{roles: 'Admin'} }, //admin
-    {path: 'viewstuds',component: ViewstudentsComponent,canActivate: [RoleGuard],data: {roles: ['Admin', 'Training Head', 'Placement Officer']}}, //admin+head+placer
+    { path: 'viewstuds',component: ViewstudentsComponent,canActivate: [RoleGuard],data: {roles: ['Admin', 'Training Head', 'Placement Officer']}}, //admin+head+placer
     { path: 'addstuds', component: AddstudentsComponent, canActivate: [RoleGuard], data:{roles: [ 'Admin', 'Training Head']} }, //admin+head
     { path: 'editbypo/:id', component: EditbyplacerComponent , canActivate : [RoleGuard], data: {roles: ['Placement Officer']} }, //placer
     { path: 'editstuds/:id', component: EditstudentComponent , canActivate : [RoleGuard] , data : {roles: ['Admin' , 'Training Head']} }, //admin+head
@@ -43,7 +43,7 @@ const routes: Routes = [
   ] },
 
   // { path: 'footer',component:FooterComponent,canActivate: [RoleGuard],data: {roles: ['Admin', 'Training Head', 'Placement Officer']}}, //all
-  { path: '**', component: ErrorComponent,canActivate: [RoleGuard],data: {roles: ['Admin', 'Training Head', 'Placement Officer']} }, //all
+  { path: '**', component: ErrorComponent,canActivate: [RoleGuard],data: {roles: ['Admin', 'Training Head', 'Placement Officer']}}, //all
 
 ];
 

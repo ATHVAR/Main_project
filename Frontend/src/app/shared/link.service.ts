@@ -30,11 +30,6 @@ export class LoginService {
     );
   }
 
-  // getuser(){
-  //   const userRole = this.user.role; // Assuming 'role' is the name of the claim in the JWT payload
-  //   // console.log('User Role:', userRole);
-  //   return userRole
-  // }
 
   getUserRole(): string | null {
     // Decode the token and return the user role
