@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit{
   }
 
   logout(){
-    localStorage.removeItem('token');
+    localStorage.clear()
     this.router.navigate(['']);
   }
 

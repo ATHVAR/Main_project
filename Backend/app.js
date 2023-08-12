@@ -53,8 +53,51 @@ const Noti=mongoose.model('Notification',notificationSchema);
 app.use(bodyParser.json());
 app.use(cors());
 
+// Login route
+app.post('/login', (req, res) => {
+  const { email, password } = req.body;
+  User.findOne({ email })
+    .then(user => {
+      if (!user) {
+        res.status(401).json({ message: 'Invalid credentials' });
+      } else {
+        bcrypt.compare(password, user.password)
+          .then(isValid => {
+            if (isValid) {
+              const token = jwt.sign({ userId: user._id, role: user.role }, 'secretKey', { expiresIn: '1h' });
+              res.json({ message: 'Login successful', token });
+            } else {
+              res.status(401).json({ message: 'Invalid credentials' });
+            }
+          })
+          .catch(err => {
+            console.error('Error comparing passwords:', err);
+            res.status(500).json({ message: 'Internal server error' });
+          });
+      }
+    })
+    .catch(err => {
+      console.error('Error finding user:', err);
+      res.status(500).json({ message: 'Internal server error' });
+    });
+});
+
+// token verification
+function verifytoken(req,res,next){
+  try {
+    if(!req.headers.authorization) throw 'Unauthorized';
+    let token=req.headers.authorization.split(' ')[1];
+    if(!token) throw 'Unauthorized';
+    let payload=jwt.verify(token,'secretKey');
+    if(!payload) throw 'Unauthorized';
+    next()
+  } catch (error) {
+    res.status(401).send('Error')
+  }
+}
+
 // Csv file upload
-app.post('/addcsv',upload.single('csvFile'),async(req,res)=>{
+app.post('/addcsv',verifytoken,upload.single('csvFile'),async(req,res)=>{
   const csvData=req.file.buffer.toString('utf-8');
   csvtojson()
     .fromString(csvData)
@@ -73,7 +116,7 @@ app.post('/addcsv',upload.single('csvFile'),async(req,res)=>{
 
 // Notification operations
 // Add notification
-app.post('/addmess', (req,res)=>{
+app.post('/addmess',verifytoken, (req,res)=>{
   console.log(req.body);
   const newNoti=new Noti({
     notificationmess:req.body.notificationmess
@@ -88,7 +131,7 @@ app.post('/addmess', (req,res)=>{
 })
 
 // View notification
-app.get('/viewmess',(req,res)=>{
+app.get('/viewmess',verifytoken,(req,res)=>{
   Noti.find()
   .then((notification)=>{
     res.status(200).json(notification);
@@ -99,7 +142,7 @@ app.get('/viewmess',(req,res)=>{
 });
 
 // Delete notification
-app.delete('/deletemess/:_id',(req, res) => {
+app.delete('/deletemess/:_id',verifytoken,(req, res) => {
   Noti.findByIdAndRemove(req.params._id)
   .then((notification)=>{
     if (notification){
@@ -113,38 +156,9 @@ app.delete('/deletemess/:_id',(req, res) => {
   });
 });
 
-// Login route
-app.post('/login', (req, res) => {
-  const { email, password } = req.body;
-  User.findOne({ email })
-    .then(user => {
-      if (!user) {
-        res.status(401).json({ message: 'Invalid credentials' });
-      } else {
-        bcrypt.compare(password, user.password)
-          .then(isValid => {
-            if (isValid) {
-              const token = jwt.sign({ userId: user._id, role: user.role }, '12345', { expiresIn: '1h' });
-              res.json({ message: 'Login successful', token });
-            } else {
-              res.status(401).json({ message: 'Invalid credentials' });
-            }
-          })
-          .catch(err => {
-            console.error('Error comparing passwords:', err);
-            res.status(500).json({ message: 'Internal server error' });
-          });
-      }
-    })
-    .catch(err => {
-      console.error('Error finding user:', err);
-      res.status(500).json({ message: 'Internal server error' });
-    });
-});
-
 // student crud operations
 // Add student
-app.post('/addstuds',(req,res)=>{
+app.post('/addstuds',verifytoken,(req,res)=>{
   console.log(req.body);
   const newStudent=new Student({
     id:req.body.id,
@@ -165,7 +179,7 @@ app.post('/addstuds',(req,res)=>{
 })
 
 // view all students
-app.get('/viewstud',(req,res)=>{
+app.get('/viewstud',verifytoken,(req,res)=>{
   Student.find()
   .then((students)=>{
     res.status(200).json(students);
@@ -176,7 +190,7 @@ app.get('/viewstud',(req,res)=>{
 });
 
 // getone student
-app.get('/getone/:_id', async (req, res) => {
+app.get('/getone/:_id',verifytoken, async (req, res) => {
   try {
     const student = await Student.findById(req.params._id);
     res.status(200).json(student);
@@ -187,7 +201,7 @@ app.get('/getone/:_id', async (req, res) => {
 });
 
 // edit student
-app.put('/editstuds/:_id', async (req, res) => {
+app.put('/editstuds/:_id',verifytoken, async (req, res) => {
   try {
       let id = req.params._id
       let updateData = {$set: req.body}
@@ -200,7 +214,7 @@ app.put('/editstuds/:_id', async (req, res) => {
 })
 
 // delete student
-app.delete('/deleteitem/:_id',(req, res) => {
+app.delete('/deleteitem/:_id',verifytoken,(req, res) => {
   Student.findByIdAndRemove(req.params._id)
   .then((student)=>{
     if (student){
@@ -216,7 +230,7 @@ app.delete('/deleteitem/:_id',(req, res) => {
 
 // User CRUD operations
 // Add user
-app.post('/api/users', async (req, res) => {
+app.post('/api/users',verifytoken, async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
     // Hash the password before saving it to the database
@@ -230,7 +244,7 @@ app.post('/api/users', async (req, res) => {
 });
 
 // Gell all users
-app.get('/api/users', async (req, res) => {
+app.get('/api/users',verifytoken, async (req, res) => {
   try {
     const users = await User.find({}, '-password'); // Exclude the password field from the response
     res.status(200).json(users);
@@ -240,7 +254,7 @@ app.get('/api/users', async (req, res) => {
 });
 
 // Getone user
-app.get('/api/users/:id', async (req, res) => {
+app.get('/api/users/:id',verifytoken, async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (!user) {
@@ -253,7 +267,7 @@ app.get('/api/users/:id', async (req, res) => {
 });
 
 // edit user
-app.put('/api/users/:id', async (req, res) => {
+app.put('/api/users/:id',verifytoken, async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -269,7 +283,7 @@ app.put('/api/users/:id', async (req, res) => {
 });
 
 // delete user
-app.delete('/api/users/:id', async (req, res) => {
+app.delete('/api/users/:id',verifytoken, async (req, res) => {
   try {
     await User.findByIdAndRemove(req.params.id);
     res.status(200).json({ message: 'User deleted successfully' });
