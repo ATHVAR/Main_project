@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -29,6 +29,7 @@ import { LoginFormVisibilityService } from './shared/login-form-visiblity.servic
 import { StudentdataService } from './shared/studentdata.service';
 import { UserdataService } from './shared/userdata.service';
 import { NotificationService } from './shared/notification.service';
+
 import { RoleGuard } from './my-auth.guard';
 
 

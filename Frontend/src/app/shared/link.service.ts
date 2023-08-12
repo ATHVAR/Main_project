@@ -40,4 +40,8 @@ export class LoginService {
     }
     return null;
   }
+
+  // loggedIn():boolean{
+  //   return !!localStorage.getItem('token');
+  // }
 }

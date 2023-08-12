@@ -27,10 +27,10 @@ const routes: Routes = [
   { path: '', component: NavbarComponent }, //all
   { path: 'login', component: LoginComponent }, //all
 
-  { path: 'home', component: HomeComponent, //all
+  { path: 'home', component: HomeComponent,canActivate: [RoleGuard],data: {roles: ['Admin', 'Training Head', 'Placement Officer']}, //all
   children :[
     { path: '', redirectTo: 'homecomp', pathMatch: 'full' }, //all
-    { path: 'homecomp', component: HomedataComponent }, //all
+    { path: 'homecomp', component: HomedataComponent,canActivate: [RoleGuard],data: {roles: ['Admin', 'Training Head', 'Placement Officer']} }, //all
     { path: 'viewuser', component: ViewuserComponent , canActivate: [RoleGuard], data:{roles: 'Admin'} }, //admin
     { path: 'adduser', component: AdduserComponent , canActivate: [RoleGuard], data:{roles: 'Admin'} }, //admin
     { path: 'edituser/:id', component: EditUserComponent , canActivate: [RoleGuard], data:{roles: 'Admin'} }, //admin
