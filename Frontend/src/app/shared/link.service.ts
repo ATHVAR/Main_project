@@ -20,15 +20,29 @@ export class LoginService {
         if (response.token) {
           // Store the token securely (e.g., in an HTTP-only cookie or local storage)
           localStorage.setItem('token', response.token);
-  
-          // Decode the token to get user information
+          // Decode the token to get user role
           this.user = jwt_decode(response.token);
-  
+
           // Log the token to the console (for demonstration purposes only)
           console.log('Token:', response.token);
         }
       })
     );
-    }
-    
   }
+
+  // getuser(){
+  //   const userRole = this.user.role; // Assuming 'role' is the name of the claim in the JWT payload
+  //   // console.log('User Role:', userRole);
+  //   return userRole
+  // }
+
+  getUserRole(): string | null {
+    // Decode the token and return the user role
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken: any = jwt_decode(token);
+      return decodedToken.role; // Assuming 'role' is the name of the claim in the JWT payload
+    }
+    return null;
+  }
+}

@@ -12,7 +12,7 @@
             </ul>
             <hr>
             <li>
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bi bi-person-lock"></i> Admin Panel</a>
+                <a *ngIf="isAdminpanel" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bi bi-person-lock"></i> Admin Panel</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
                         <a (click)="toggleSidebar()" routerLink="adduser"><i class="bi bi-person-plus"></i> Add User</a>
@@ -26,18 +26,18 @@
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bi bi-people-fill"></i> Student Panel</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a (click)="toggleSidebar()" routerLink="addstuds"><i class="bi bi-person-plus"></i> Add Students</a>
+                        <a *ngIf="isAddstudent" (click)="toggleSidebar()" routerLink="addstuds"><i class="bi bi-person-plus"></i> Add Students</a>
                     </li>
                     <li>
                         <a (click)="toggleSidebar()" routerLink="viewstuds"><i class="bi bi-person-badge"></i> View Students</a>
                     </li>
                     <li>
-                        <a (click)="toggleSidebar()" routerLink="csv"><i class="bi bi-file-earmark-arrow-up-fill"></i> CSV-upload</a>
+                        <a *ngIf="isCsvupload" (click)="toggleSidebar()" routerLink="csv"><i class="bi bi-file-earmark-arrow-up-fill"></i> CSV-upload</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a (click)="toggleSidebar()" class="nav-link" routerLink="passchange"><i class="bi bi-bell"></i> Add Notification</a>
+                <a *ngIf="isAddnoti" (click)="toggleSidebar()" class="nav-link" routerLink="passchange"><i class="bi bi-bell"></i> Add Notification</a>
             </li>
         </ul>
         <ul class="list-unstyled CTAs">

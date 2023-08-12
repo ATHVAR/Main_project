@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const jwt = require ('jsonwebtoken');
+
 const csvtojson=require("csvtojson");
 const multer=require('multer');
 const storage=multer.memoryStorage();
@@ -20,7 +21,6 @@ mongoose.connect('mongodb+srv://officialsabarinarayan:9447103050@cluster0.buyzcu
 .then(() => {
   console.log('Connected to MongoDB Atlas');
     })
-
 .catch(err => console.error('Error connecting to MongoDB Atlas:', err));
 
 // User schema
@@ -72,7 +72,7 @@ app.post('/addcsv',upload.single('csvFile'),async(req,res)=>{
 });
 
 // Notification operations
-// Add
+// Add notification
 app.post('/addmess', (req,res)=>{
   console.log(req.body);
   const newNoti=new Noti({
@@ -87,7 +87,7 @@ app.post('/addmess', (req,res)=>{
     })
 })
 
-// View 
+// View notification
 app.get('/viewmess',(req,res)=>{
   Noti.find()
   .then((notification)=>{
@@ -98,7 +98,7 @@ app.get('/viewmess',(req,res)=>{
   })
 });
 
-// Delete
+// Delete notification
 app.delete('/deletemess/:_id',(req, res) => {
   Noti.findByIdAndRemove(req.params._id)
   .then((notification)=>{
@@ -143,7 +143,7 @@ app.post('/login', (req, res) => {
 });
 
 // student crud operations
-// Add
+// Add student
 app.post('/addstuds',(req,res)=>{
   console.log(req.body);
   const newStudent=new Student({
@@ -164,7 +164,7 @@ app.post('/addstuds',(req,res)=>{
     })
 })
 
-// view all
+// view all students
 app.get('/viewstud',(req,res)=>{
   Student.find()
   .then((students)=>{
@@ -175,7 +175,7 @@ app.get('/viewstud',(req,res)=>{
   })
 });
 
-// getone
+// getone student
 app.get('/getone/:_id', async (req, res) => {
   try {
     const student = await Student.findById(req.params._id);
@@ -186,7 +186,7 @@ app.get('/getone/:_id', async (req, res) => {
   }
 });
 
-// edit data
+// edit student
 app.put('/editstuds/:_id', async (req, res) => {
   try {
       let id = req.params._id
@@ -199,7 +199,7 @@ app.put('/editstuds/:_id', async (req, res) => {
   }
 })
 
-// delete data
+// delete student
 app.delete('/deleteitem/:_id',(req, res) => {
   Student.findByIdAndRemove(req.params._id)
   .then((student)=>{
@@ -214,8 +214,8 @@ app.delete('/deleteitem/:_id',(req, res) => {
   });
 });
 
-// User CRUD operations =>
-// Add
+// User CRUD operations
+// Add user
 app.post('/api/users', async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
@@ -229,7 +229,7 @@ app.post('/api/users', async (req, res) => {
   }
 });
 
-// Gell all
+// Gell all users
 app.get('/api/users', async (req, res) => {
   try {
     const users = await User.find({}, '-password'); // Exclude the password field from the response
@@ -239,7 +239,7 @@ app.get('/api/users', async (req, res) => {
   }
 });
 
-// Getone
+// Getone user
 app.get('/api/users/:id', async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -252,7 +252,7 @@ app.get('/api/users/:id', async (req, res) => {
   }
 });
 
-// edit
+// edit user
 app.put('/api/users/:id', async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
@@ -268,7 +268,7 @@ app.put('/api/users/:id', async (req, res) => {
   }
 });
 
-// delete
+// delete user
 app.delete('/api/users/:id', async (req, res) => {
   try {
     await User.findByIdAndRemove(req.params.id);

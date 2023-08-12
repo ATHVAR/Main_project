@@ -1,6 +1,7 @@
 // import { TmplAstRecursiveVisitor } from '@angular/compiler';
 import { Component, OnInit , ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/shared/link.service';
 
 @Component({
   selector: 'app-home',
@@ -17,10 +18,33 @@ export class HomeComponent implements OnInit{
 
   collapsed = false;
 
-  constructor(private router:Router, private renderer: Renderer2){}
+  // Only for admin
+  isAdminpanel=false;
+  isAddnoti=false;
+  // For Admin & Trainighead
+  isAddstudent=false;
+  isCsvupload=false;
+  currentuser:any;
+
+ 
+
+  constructor(private router:Router, private renderer: Renderer2, private serv:LoginService){}
 
   ngOnInit(): void {
-    
+    this.currentuser = this.serv.getUserRole();
+    this.menuDisplay();
+  }
+
+  menuDisplay() {
+    if (this.currentuser === 'Admin') {
+      this.isAdminpanel = true;
+      this.isAddnoti=true;
+      this.isAddstudent=true;
+      this.isCsvupload=true;
+    } else if(this.currentuser === 'Training Head') {
+      this.isAddstudent=true;
+      this.isCsvupload=true;
+    }
   }
 
   toggleCollapse(): void {
@@ -28,8 +52,7 @@ export class HomeComponent implements OnInit{
   }
 
   logout(){
-    // after implementing tokenization
-    // localStorage.removeItem('token');
+    localStorage.removeItem('token');
     this.router.navigate(['']);
   }
 
@@ -51,4 +74,6 @@ export class HomeComponent implements OnInit{
       submenu.classList.toggle('show');
     }
   }
+
+
 }
