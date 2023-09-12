@@ -22,7 +22,6 @@ export class LoginService {
           localStorage.setItem('token', response.token);
           // Decode the token to get user role
           this.user = jwt_decode(response.token);
-
           // Log the token to the console (for demonstration purposes only)
           console.log('Token:', response.token);
         }

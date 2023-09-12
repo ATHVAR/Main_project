@@ -8,6 +8,7 @@ const studentSchema=new mongoose.Schema({
     batch: String,
     status: String,
     placement: String,
-  })
-  const Student=mongoose.model('Studentdetail',studentSchema);
-  module.exports =Student;
+})
+
+const Student=mongoose.model('Studentdetail',studentSchema);
+module.exports =Student;
